@@ -1,4 +1,4 @@
-/* globals users */
+/* globals users, expect */
 
 require('../spec_helper');
 
@@ -10,5 +10,15 @@ describe('User Controller Test', () => {
         .set('Accept', 'application/json')
         .expect(200, done);
     });
+    it('should return an array of users', done => {
+      users
+        .get('/users')
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.body).to.be.an('array');
+          done();
+        });
+    });
+
   });
 });
