@@ -1,9 +1,14 @@
-const express = require('express');
-const port    = process.env.PORT || 4000;
-const app     = express();
-const dest    = `${__dirname}/public`;
+const express    = require('express');
+const port       = process.env.PORT || 4000;
+const app        = express();
+const dest       = `${__dirname}/public`;
 const expressJWT = require('express-jwt');
+const mongoose   = require('mongoose');
+mongoose.Promise = require('bluebird');
+const bodyParser = require('body-parser');
 
+
+app.use(bodyParser.json());
 app.use(express.static(dest));
 
 app.use('/api', expressJWT({ secret: config.secret }) // there is no config directory yet
