@@ -1,6 +1,6 @@
 
-// require user model "const User   = require('../models/user');"
-// require config/config "const config   = require('../config/env');"
+const User   = require('../models/user');
+const config   = require('../config/env');
 const jwt = require('jsonwebtoken');
 
 
