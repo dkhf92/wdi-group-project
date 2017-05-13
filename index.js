@@ -24,13 +24,13 @@ app.use(express.static(dest));
 
 
 
-app.use('/api', expressJWT({ secret: config.secret }) // there is no config directory yet
-  .unless({
-    path: [
-      { url: '/api/register', methods: ['POST'] },
-      { url: '/api/login',    methods: ['POST'] }
-    ]
-  }));
+// app.use('/api', expressJWT({ secret: config.secret })
+//   .unless({
+//     path: [
+//       { url: '/api/register', methods: ['POST'] },
+//       { url: '/api/login',    methods: ['POST'] }
+//     ]
+//   }));
 app.use(jwtErrorHandler);
 
 function jwtErrorHandler(err, req, res, next){

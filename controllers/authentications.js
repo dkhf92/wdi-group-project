@@ -1,4 +1,3 @@
-
 const User   = require('../models/user');
 const config   = require('../config/env');
 const jwt = require('jsonwebtoken');
@@ -17,7 +16,7 @@ function authenticationsRegister(req, res) {
   });
 }
 function authenticationsLogin(req, res) {
-  User.findOne({ email: req.body.email }), (err, user) => {
+  User.findOne({ email: req.body.email }, (err, user) => {
     if (err) return res.status(500).json({ message: 'Something went wrong.' });
     if (!user || !user.validatePassword(req.body.password)) {
       return res.status(401).json({ message: 'Unauthorized'});
@@ -30,7 +29,7 @@ function authenticationsLogin(req, res) {
       user,
       token
     });
-  };
+  });
 }
 
 
