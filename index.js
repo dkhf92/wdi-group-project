@@ -2,14 +2,27 @@ const express    = require('express');
 const port       = process.env.PORT || 4000;
 const app        = express();
 const dest       = `${__dirname}/public`;
+const config     = require('./config/env');
+const router     = require('./config/routes');
 const expressJWT = require('express-jwt');
 const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
+const morgan     = require('morgan');
+
+
+
+
 
 
 app.use(bodyParser.json());
 app.use(express.static(dest));
+
+
+
+
+
+
 
 app.use('/api', expressJWT({ secret: config.secret }) // there is no config directory yet
   .unless({
@@ -24,6 +37,13 @@ function jwtErrorHandler(err, req, res, next){
   if (err.name !== 'UnauthorizedError') return next();
   return res.status(401).json({ message: 'Unauthorized request.' });
 }
+
+
+
+
+
+
+
 
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 
