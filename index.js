@@ -11,11 +11,11 @@ const bodyParser = require('body-parser');
 const morgan     = require('morgan');
 
 
+mongoose.connect(config.db);
 
-
-
-
+app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(dest));
 
 
@@ -44,7 +44,7 @@ function jwtErrorHandler(err, req, res, next){
 
 
 
-
+app.use('/api', router);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 
 app.listen(port, () => console.log(`Express has started on port: ${port}`));
