@@ -57,6 +57,18 @@ function validatePasswordHash() {
     if (this._password.length < 6) {
       this.invalidate('password', 'must be at least 6 characters.');
     }
-    
+    if (this._password !== this._passwordConfirmation) {
+      return this.invalidate('passwordConfirmation', 'Passwords do not match.');
+    }
   }
+}
+
+function validateEmail(email) {
+  if (!validator.isEmail(email)) {
+    return this.invalidate('email', 'must be a valid email adress');
+  }
+}
+
+function validatePassword(password) {
+  return bcrypt.compareSync(password, this.passwordHash);
 }
