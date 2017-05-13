@@ -26,7 +26,36 @@ function taskShow(req, res, next){
 
 }
 
+function taskCreate(req, res){
+  const task = new Task(req.body); //
+  task.save(err => {
+    if(err) return res.status(500).json({ message: 'Something has gone wrong!!'});
+    return res.status(201).json(task);
+  });
+}
+
+function taskUpdate(req, res){
+  Task
+    .findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, task) => {
+      if(err) return res.status(500).json({ message: 'Oops! something went wrong'});
+      if(!task) return res.status(404).json({ message: 'There is no task here!' });
+      return res.status(200).json(task);
+    });
+}
+
+function taskDelete(req, res){
+  Task
+   .findByIdAndRemove(req.params.id, (err, task) => {
+     if(err) return res.status(500).json({ message: 'something went wrong'});
+     if(!task) return res.status(404).json({message: 'There is no task here!'});
+     return res.status(200).json({ message: 'Task has been removed!'});
+   });
+}
 
 module.exports = {
-  index: taskIndex
+  index: taskIndex,
+  show: taskShow,
+  create: taskCreate,
+  update: taskUpdate,
+  delete: taskDelete
 };
