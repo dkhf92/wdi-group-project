@@ -305,5 +305,77 @@ describe('User tests', () => {
         });
     });
 
+    it('should return an array of users with specific properties', done => {
+      api
+        .get('/api/users')
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          const user = res.body[0];
+
+          expect(user)
+            .to.have.property('_id')
+            .and.to.be.a('string');
+
+          expect(user)
+            .to.have.property('email')
+            .and.to.be.a('string');
+
+          expect(user)
+            .to.have.property('username')
+            .and.to.be.a('string');
+
+          expect(user)
+            .to.have.property('firstName')
+            .and.to.be.a('string');
+
+          expect(user)
+            .to.have.property('lastName')
+            .and.to.be.a('string');
+
+          done();
+        });
+    });
+
+  });
+
+  describe('User Show GET /api/users/:id', () => {
+    let user;
+    let myToken;
+
+    beforeEach(done => {
+      User.collection.remove();
+      api
+      .post('/api/register')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'Test',
+        firstName: 'Horace',
+        lastName: 'Keating',
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password'
+      })
+      .end((err, res) => {
+        user = res.body.user;
+        myToken = res.body.token;
+        done();
+      });
+    });
+
+    afterEach(done => {
+      User.collection.remove();
+      done();
+    });
+
+    it('should return a 200 response', done => {
+      api
+        .get(`/api/users/${user._id}`)
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .expect(200, done);
+
+    });
+
   });
 });
