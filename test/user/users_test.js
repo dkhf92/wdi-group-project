@@ -374,7 +374,31 @@ describe('User tests', () => {
         .set('Authorization', 'Bearer '+myToken)
         .set('Accept', 'application/json')
         .expect(200, done);
+    });
 
+    it('should return a specific user', done => {
+      api
+        .get(`/api/users/${user._id}`)
+        .set('Authorization', 'Bearer '+ myToken)
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          const user = res.body;
+
+          expect(user)
+            .to.have.property('username')
+            .and.to.equal('Test');
+          expect(user)
+            .to.have.property('firstName')
+            .and.to.equal('Horace');
+          expect(user)
+            .to.have.property('lastName')
+            .and.to.equal('Keating');
+          expect(user)
+            .to.have.property('email')
+            .and.to.equal('test@test.com');
+
+          done();
+        });
     });
 
   });
