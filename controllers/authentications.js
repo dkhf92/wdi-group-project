@@ -5,8 +5,9 @@ const jwt = require('jsonwebtoken');
 
 function authenticationsRegister(req, res) {
   User.create(req.body, (err, user) => {
-    if (err) return res.status(500).json({ message: 'Something went wrong' });
-
+    if (err) {
+      return res.status(500).json({ message: 'Something went wrong' });
+    }
     const token = jwt.sign({ id: user._id, username: user.username }, config.secret, { expiresIn: 60*60*24 });
     return res.status(201).json({
       message: `Welcome ${user.username}`,
