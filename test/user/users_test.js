@@ -474,4 +474,42 @@ describe('User tests', () => {
         });
     });
   });
+
+  describe('Delete User DELETE /api/users/:id', () => {
+    let user;
+    let myToken;
+
+    beforeEach(done => {
+      User.collection.remove();
+      api
+      .post('/api/register')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'Test',
+        firstName: 'Horace',
+        lastName: 'Keating',
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password'
+      })
+      .end((err, res) => {
+        user = res.body.user;
+        myToken = res.body.token;
+        done();
+      });
+    });
+
+    afterEach(done => {
+      User.collection.remove();
+      done();
+    });
+
+    it('should return a 204 response', done => {
+      api
+        .delete(`/api/users/${user._id}`)
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .expect(204, done);
+    });
+  });
 });
