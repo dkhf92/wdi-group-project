@@ -40,18 +40,17 @@ describe('User tests', () => {
   describe('POST /api/register', () => {
     it('should return a 201 response', done => {
       api
-        .post('/api/register')
-        .set('Accept', 'application/json')
-        .send({
-          user: {
-            username: 'Test',
-            firstName: 'Horace',
-            lastName: 'Keating',
-            email: 'test@test.com',
-            passwordHash: 'password'
-          }
-        })
-        .expect(201, done);
+      .post('/api/register')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'Test',
+        firstName: 'Horace',
+        lastName: 'Keating',
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password'
+      })
+      .expect(201, done);
     });
     // it('should return an array of users', done => {
     //   api
