@@ -2,6 +2,8 @@
 
 require('../spec_helper');
 
+const User = require('../../models/user');
+
 // describe('User Controller Test', () => {
 //   describe('GET /api/users', () => {
 //     it('should return a 200 response', done => {
@@ -23,13 +25,33 @@ require('../spec_helper');
 //   });
 // });
 
-describe('Registration Test', () => {
-  describe('GET /api/register', () => {
-    it('should return a 200 response', done => {
+describe('User tests', () => {
+
+  beforeEach(done => {
+    User.collection.remove();
+    done();
+  });
+
+  afterEach(done => {
+    User.collection.remove();
+    done();
+  });
+
+  describe('POST /api/register', () => {
+    it('should return a 201 response', done => {
       api
-        .get('/api/register')
+        .post('/api/register')
         .set('Accept', 'application/json')
-        .expect(200, done);
+        .send({
+          user: {
+            username: 'Test',
+            firstName: 'Horace',
+            lastName: 'Keating',
+            email: 'test@test.com',
+            passwordHash: 'password'
+          }
+        })
+        .expect(201, done);
     });
     // it('should return an array of users', done => {
     //   api
