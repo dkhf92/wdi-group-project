@@ -4,27 +4,6 @@ require('../spec_helper');
 
 const User = require('../../models/user');
 
-// describe('User Controller Test', () => {
-//   describe('GET /api/users', () => {
-//     it('should return a 200 response', done => {
-//       api
-//         .get('/api/users')
-//         .set('Accept', 'application/json')
-//         .expect(200, done);
-//     });
-//     it('should return an array of users', done => {
-//       api
-//         .get('/api/users')
-//         .set('Accept', 'application/json')
-//         .end((err, res) => {
-//           expect(res.body).to.be.an('array');
-//           done();
-//         });
-//     });
-//
-//   });
-// });
-
 describe('User tests', () => {
 
   beforeEach(done => {
@@ -339,7 +318,7 @@ describe('User tests', () => {
 
   });
 
-  describe('User Show GET /api/users/:id', () => {
+  describe('User Show: GET /api/users/:id', () => {
     let user;
     let myToken;
 
@@ -403,7 +382,7 @@ describe('User tests', () => {
 
   });
 
-  describe('User Update PUT /api/users/:id', () => {
+  describe('User Update: PUT /api/users/:id', () => {
     let user;
     let myToken;
 
@@ -475,7 +454,7 @@ describe('User tests', () => {
     });
   });
 
-  describe('Delete User DELETE /api/users/:id', () => {
+  describe('User Delete: DELETE /api/users/:id', () => {
     let user;
     let myToken;
 
