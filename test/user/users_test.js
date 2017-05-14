@@ -239,4 +239,71 @@ describe('User tests', () => {
         });
     });
   });
+
+  describe('User Index: GET /api/users', () => {
+    let myToken;
+
+    beforeEach(done => {
+      User.collection.remove();
+      api
+      .post('/api/register')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'Test',
+        firstName: 'Horace',
+        lastName: 'Keating',
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password'
+      })
+      .end((err, res) => {
+        myToken = res.body.token;
+        done();
+      });
+    });
+
+    afterEach(done => {
+      User.collection.remove();
+      done();
+    });
+
+    it('should return a 200 response', done => {
+      api
+        .get('/api/users')
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .expect(200, done);
+    });
+
+    it('should return an array', done => {
+      api
+        .get('/api/users')
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.body).to.be.an('array');
+          done();
+        });
+    });
+
+    it('should return an array of users', done => {
+      api
+        .get('/api/users')
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .end((err, res) => {
+          expect(res.body).to.be.an('array')
+          .and.have.property(0)
+          .and.have.all.keys([
+            '_id',
+            'email',
+            'username',
+            'firstName',
+            'lastName'
+          ]);
+          done();
+        });
+    });
+
+  });
 });
