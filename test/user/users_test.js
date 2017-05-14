@@ -402,4 +402,76 @@ describe('User tests', () => {
     });
 
   });
+
+  describe('User Update PUT /api/users/:id', () => {
+    let user;
+    let myToken;
+
+    beforeEach(done => {
+      User.collection.remove();
+      api
+      .post('/api/register')
+      .set('Accept', 'application/json')
+      .send({
+        username: 'Test',
+        firstName: 'Horace',
+        lastName: 'Keating',
+        email: 'test@test.com',
+        password: 'password',
+        passwordConfirmation: 'password'
+      })
+      .end((err, res) => {
+        user = res.body.user;
+        myToken = res.body.token;
+        done();
+      });
+    });
+
+    afterEach(done => {
+      User.collection.remove();
+      done();
+    });
+
+    it('should return a 200 response', done => {
+      api
+        .put(`/api/users/${user._id}`)
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .expect(200, done);
+    });
+
+    it('should return an updated user', done => {
+      api
+        .put(`/api/users/${user._id}`)
+        .set('Authorization', 'Bearer '+myToken)
+        .set('Accept', 'application/json')
+        .send({
+          user: {
+            username: 'Different',
+            firstName: 'Different',
+            lastName: 'Different',
+            email: 'test@test.com',
+            password: 'password',
+            passwordConfirmation: 'password'
+          }
+        })
+        .end((err, res) => {
+          const user = res.body;
+          expect(user)
+            .to.have.property('username')
+            .and.to.equal('Different');
+          expect(user)
+            .to.have.property('firstName')
+            .and.to.equal('Different');
+          expect(user)
+            .to.have.property('lastName')
+            .and.to.equal('Different');
+          expect(user)
+            .to.have.property('email')
+            .and.to.equal('test@test.com');
+
+          done();
+        });
+    });
+  });
 });
