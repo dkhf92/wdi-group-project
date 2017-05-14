@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">89.29% </span>
+        <span class="strong">93.1% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/28</span>
+        <span class='fraction'>27/29</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/4</span>
+        <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>23/25</span>
+        <span class='fraction'>26/26</span>
       </div>
     </div>
   </div>
@@ -95,7 +95,8 @@
 50
 51
 52
-53</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+53
+54</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
@@ -103,25 +104,19 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -130,9 +125,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -158,9 +160,10 @@ const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const morgan     = require('morgan');
+const environment = app.get('env');
 &nbsp;
 &nbsp;
-mongoose.connect(config.db);
+mongoose.connect(config.db[environment]);
 &nbsp;
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -176,15 +179,15 @@ app.use(express.static(dest));
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({
     path: [
-      { url: '/api/register', methods: ['POST', 'GET'] },
+      { url: '/api/register', methods: ['POST'] },
       { url: '/api/login',    methods: ['POST'] }
     ]
   }));
 app.use(jwtErrorHandler);
 &nbsp;
-<span class="fstat-no" title="function not covered" >function jwtErrorHandler(err, req, res, next){</span>
-<span class="cstat-no" title="statement not covered" >  if (err.name !== 'UnauthorizedError') <span class="cstat-no" title="statement not covered" >return next();</span></span>
-<span class="cstat-no" title="statement not covered" >  return res.status(401).json({ message: 'Unauthorized request.' });</span>
+function jwtErrorHandler(err, req, res, next){
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (err.name !== 'UnauthorizedError') <span class="cstat-no" title="statement not covered" >return next();</span>
+  return res.status(401).json({ message: 'Unauthorized request.' });
 }
 &nbsp;
 &nbsp;
@@ -194,7 +197,7 @@ app.use(jwtErrorHandler);
 &nbsp;
 &nbsp;
 app.use('/api', router);
-app.get('/*', (req, res) =&gt; res.sendFile(`${dest}/index.html`));
+app.get('/*', (req, res) =&gt; <span class="cstat-no" title="statement not covered" >res.sendFile(`${dest}/index.html`))</span>;
 &nbsp;
 app.listen(port, () =&gt; console.log(`Express has started on port: ${port}`));
 &nbsp;
@@ -205,7 +208,7 @@ module.exports = app;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 14 2017 11:33:43 GMT+0100 (BST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun May 14 2017 11:47:06 GMT+0100 (BST)
 </div>
 </div>
 <script src="../prettify.js"></script>
