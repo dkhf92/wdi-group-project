@@ -2,10 +2,10 @@ angular
   .module('thisApp')
   .factory('Task', Task);
 
-Task.$inject = ['$resource'];
-function Task($resource){
-  
-  return $resource('http://localhost:4000/api/tasks/:id', { id: '@_id'},{
+Task.$inject = ['$resource', 'API'];
+function Task($resource, API){
+
+  return $resource(`${API}/tasks/:id`, { id: '@_id'},{
     'update': { method: 'PUT'}
   });
 }
