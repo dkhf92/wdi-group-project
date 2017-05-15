@@ -5,8 +5,7 @@ angular
 TasksIndexCtrl.$inject = ['Task', '$state'];
 function TasksIndexCtrl(Task, $state){
   const vm  = this;
-  vm.tasks = Task.query();
-
+  vm.all = Task.query();
 
   vm.delete  = tasksDelete;
 
