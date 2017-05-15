@@ -17,31 +17,31 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/tasks/new',
     templateUrl: '/js/views/tasks/new.html',
     controller: 'TasksNewCtrl',
-    controllerAs: 'tasks'
+    controllerAs: 'tasksNew'
   })
   .state('tasksShow', {
     url: '/tasks/:id',
     templateUrl: '/js/views/tasks/show.html',
     controller: 'TasksShowCtrl',
-    controllerAs: 'tasks'
+    controllerAs: 'tasksShow'
   })
   .state('tasksEdit', {
     url: '/tasks/:id/edit',
     templateUrl: '/js/views/tasks/edit.html',
     controller: 'TasksEditCtrl',
-    controllerAs: 'tasks'
+    controllerAs: 'tasksEdit'
   })
   .state('usersIndex', {
     url: '/users',
     templateUrl: '/js/views/users/index.html',
     controller: 'UserIndexCtrl',
-    controllerAs: 'users'
+    controllerAs: 'usersIndex'
   })
   .state('usersShow', {
     url: '/users/:id',
     templateUrl: '/js/views/users/show.html',
     controller: 'UserShowCtrl',
-    controllerAs: 'users'
+    controllerAs: 'usersShow'
   })
   .state('login', {
     url: '/login',
