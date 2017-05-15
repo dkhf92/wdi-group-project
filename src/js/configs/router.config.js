@@ -45,18 +45,22 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   })
   .state('login', {
     url: '/login',
-    templateUrl: 'js/views/login.html',
+    templateUrl: '/js/views/login.html',
     controller: 'LoginCtrl as login'
   })
   .state('register', {
     url: '/register',
-    templateUrl: 'js/views/register.html',
+    templateUrl: '/js/views/register.html',
     controller: 'RegisterCtrl as register'
   })
   .state('charity', {
     url: '/charities',
-    templateUrl: 'js/views/charities/index.html',
+    templateUrl: '/js/views/charities/index.html',
     controller: 'CharitySearchCtrl as charities'
+  })
+  .state('home', {
+    url: '/',
+    templateUrl: '/js/views/home.html'
   });
 
   $urlRouterProvider.otherwise('/');
