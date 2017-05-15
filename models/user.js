@@ -9,8 +9,8 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, trim: true },
   email: { type: String, unique: true, trim: true, required: true },
   passwordHash: { type: String, required: true },
-  tasksCreated: { type: Array },
-  tasksCompleted: { type: Array }
+  tasksCreated: [{ type: mongoose.Schema.objectId, ref: 'Task' }],
+  tasksCompleted: [{ type: mongoose.Schema.objectId, ref: 'Task' }]
 });
 
 userSchema

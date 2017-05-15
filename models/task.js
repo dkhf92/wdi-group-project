@@ -5,7 +5,8 @@ const taskSchema = new mongoose.Schema({
   description: { type: String, trim: true, required: true },
   location: { type: String, trim: true, required: true },
   price: { type: Number, required: true},
-  requestedBy: { type: Array }
+  requestedBy: [{ type: mongoose.Schema.objectId, ref: 'User' }],
+  charity: { type: mongoose.Schema.objectId, ref: 'Charity' }
 },{
   timestamps: true
 });
