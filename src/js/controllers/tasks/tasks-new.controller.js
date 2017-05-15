@@ -10,6 +10,7 @@ function TasksNewCtrl($state, Task){
   function taskCreate(){
     Task
     .save(vm.task)
+    // .save(vm.task)
     .$promise
     .then(() => {
       $state.go('tasksIndex');
