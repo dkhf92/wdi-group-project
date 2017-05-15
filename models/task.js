@@ -15,10 +15,13 @@ taskSchema
   .set(convertFromDecimal);
 
 function convertToDecimal(value){
-  return(value/100).toFixed(2);
+  console.log(value, '************* get **************');
+  return (value/100);
 }
 
 function convertFromDecimal(value){
-  return value * 100;
+  console.log(value, '************* set **************');
+  return (value * 100).toFixed(2);
 }
+
 module.exports = mongoose.model('Task', taskSchema);

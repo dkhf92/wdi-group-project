@@ -9,9 +9,10 @@ const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const morgan     = require('morgan');
+const environment = app.get('env');
 
 
-mongoose.connect(config.db);
+mongoose.connect(config.db[environment]);
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -48,3 +49,5 @@ app.use('/api', router);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));
 
 app.listen(port, () => console.log(`Express has started on port: ${port}`));
+
+module.exports = app;
