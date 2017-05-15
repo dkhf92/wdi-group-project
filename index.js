@@ -9,6 +9,7 @@ const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const morgan     = require('morgan');
+const cors       = require('cors');
 const environment = app.get('env');
 
 
@@ -18,11 +19,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(dest));
-
-
-
-
-
+app.use(cors());
 
 
 app.use('/api', expressJWT({ secret: config.secret })
@@ -38,12 +35,6 @@ function jwtErrorHandler(err, req, res, next){
   if (err.name !== 'UnauthorizedError') return next();
   return res.status(401).json({ message: 'Unauthorized request.' });
 }
-
-
-
-
-
-
 
 app.use('/api', router);
 app.get('/*', (req, res) => res.sendFile(`${dest}/index.html`));

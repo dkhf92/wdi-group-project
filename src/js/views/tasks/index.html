@@ -1,34 +1,14 @@
 <h1>tasksIndex</h1>
-
 <ul>
-  <li ng-repeat="task in tasksIndex.tasks">
+  <li ng-repeat="task in tasksIndex.all">
     <h1>{{ task.name }}</h1>
     {{ task.description }}
-    {{ task.location }}
+    {{ task.location }}
+    {{ task.price }}
   </li>
 </ul>
 
-{{ task.price }}
-<ul>
-  <li ng-repeat="task in tasksIndex.tasks">
-    {{ task.name }}
-    {{ task.description }}
-    {{ task.location }}
-  </li>
-</ul>
 
-<ul>
-  <li ng-repeat="task in tasksIndex.tasks">
-    {{ task.name }}
-    {{ task.description }}
-    {{ task.location }}
-  </li>
-</ul>
 
-{{ TasksShow.task.name }}
-{{ }}
-{{ 2+2 }}
-{{ task.name }}
-{{ task.description }}
-{{ task }}
-{{ tasks.description }}
+<!-- requestedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
+charity: { type: mongoose.Schema.ObjectId, ref: 'Charity' } -->
