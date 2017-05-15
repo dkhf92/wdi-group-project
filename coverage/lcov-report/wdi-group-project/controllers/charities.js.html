@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for wdi-group-project/controllers/tasks.js</title>
+    <title>Code coverage report for wdi-group-project/controllers/charities.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../../index.html">all files</a> / <a href="index.html">wdi-group-project/controllers/</a> tasks.js
+      <a href="../../index.html">all files</a> / <a href="index.html">wdi-group-project/controllers/</a> charities.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.13% </span>
+        <span class="strong">21.88% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/32</span>
+        <span class='fraction'>7/32</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/5</span>
+        <span class='fraction'>0/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">25.93% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/27</span>
+        <span class='fraction'>7/27</span>
       </div>
     </div>
   </div>
@@ -103,18 +103,7 @@
 58
 59
 60
-61
-62</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+61</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -122,12 +111,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,66 +163,65 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Task = require('../models/task');
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Charity = require('../models/charity');
 &nbsp;
-function taskIndex(req, res, next){
-  Task
-  .find()
-  .exec()
-  .then(tasks =&gt; {
-    return res.status(200).json(tasks);
-  })
-  .catch(next);
+<span class="fstat-no" title="function not covered" >function charityIndex(req, res, next){</span>
+<span class="cstat-no" title="statement not covered" >  Charity</span>
+    .find()
+    .exec()
+    .then(charities =&gt; {
+<span class="cstat-no" title="statement not covered" >      return res.status(200).json(charities);</span>
+    })
+    .catch(next);
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function taskShow(req, res, next){</span>
-<span class="cstat-no" title="statement not covered" >  Task</span>
-  .findById(req.params.id)
-  .exec()
-  .then(task =&gt; {
-<span class="cstat-no" title="statement not covered" >    if(!task){</span>
-<span class="cstat-no" title="statement not covered" >      const error = new Error('No task has been found');</span>
-<span class="cstat-no" title="statement not covered" >      error.status = 404;</span>
-<span class="cstat-no" title="statement not covered" >      return next(error);</span>
-    }
-<span class="cstat-no" title="statement not covered" >    return res.status(200).json(task);</span>
-  })
-  .catch(next);
-&nbsp;
+<span class="fstat-no" title="function not covered" >function charityShow(req, res, next) {</span>
+<span class="cstat-no" title="statement not covered" >  Charity</span>
+    .findById(req.params.id)
+    .exec()
+    .then(charity =&gt; {
+<span class="cstat-no" title="statement not covered" >      if(!charity) {</span>
+<span class="cstat-no" title="statement not covered" >        const error = new Error('No charity found');</span>
+<span class="cstat-no" title="statement not covered" >        error.status = 404;</span>
+<span class="cstat-no" title="statement not covered" >        return next(error);</span>
+      }
+<span class="cstat-no" title="statement not covered" >      return res.status(200).json(charity);</span>
+    })
+    .catch(next);
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function taskCreate(req, res){</span>
-<span class="cstat-no" title="statement not covered" >  const task = new Task(req.body); </span>//
-<span class="cstat-no" title="statement not covered" >  task.save(err =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if(err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'Something has gone wrong!!'});</span></span>
-<span class="cstat-no" title="statement not covered" >    return res.status(201).json(task);</span>
+<span class="fstat-no" title="function not covered" >function charityCreate(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >  const charity = new Charity(req.body);</span>
+<span class="cstat-no" title="statement not covered" >  charity.save(err =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if(err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'Something went wrong!'});</span></span>
+<span class="cstat-no" title="statement not covered" >    return res.status(201).json(charity);</span>
   });
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function taskUpdate(req, res){</span>
-<span class="cstat-no" title="statement not covered" >  Task</span>
-    .findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, task) =&gt; {
-<span class="cstat-no" title="statement not covered" >      if(err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'Oops! something went wrong'});</span></span>
-<span class="cstat-no" title="statement not covered" >      if(!task) <span class="cstat-no" title="statement not covered" >return res.status(404).json({ message: 'There is no task here!' });</span></span>
-<span class="cstat-no" title="statement not covered" >      return res.status(200).json(task);</span>
+<span class="fstat-no" title="function not covered" >function charityUpdate(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >  Charity</span>
+    .findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, charity) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if(err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'Something went wrong!'});</span></span>
+<span class="cstat-no" title="statement not covered" >      if(!charity) <span class="cstat-no" title="statement not covered" >return res.status(404).json({ message: 'No charity found' });</span></span>
+<span class="cstat-no" title="statement not covered" >      return res.status(200).json(charity);</span>
     });
 }
 &nbsp;
-<span class="fstat-no" title="function not covered" >function taskDelete(req, res){</span>
-<span class="cstat-no" title="statement not covered" >  Task</span>
-   .findByIdAndRemove(req.params.id, (err, task) =&gt; {
-<span class="cstat-no" title="statement not covered" >     if(err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'something went wrong'});</span></span>
-<span class="cstat-no" title="statement not covered" >     if(!task) <span class="cstat-no" title="statement not covered" >return res.status(404).json({message: 'There is no task here!'});</span></span>
-<span class="cstat-no" title="statement not covered" >     return res.status(200).json({ message: 'Task has been removed!'});</span>
-   });
+<span class="fstat-no" title="function not covered" >function charityDelete(req, res) {</span>
+<span class="cstat-no" title="statement not covered" >  Charity</span>
+    .findByIdAndRemove(req.params.id, (err, task) =&gt; {
+<span class="cstat-no" title="statement not covered" >      if(err) <span class="cstat-no" title="statement not covered" >return res.status(500).json({ message: 'something went wrong!'});</span></span>
+<span class="cstat-no" title="statement not covered" >      if(!task) <span class="cstat-no" title="statement not covered" >return res.status(404).json({message: 'No charity found'});</span></span>
+<span class="cstat-no" title="statement not covered" >      return res.status(200).json({ message: 'Charity successfully removed'});</span>
+    });
 }
 &nbsp;
 module.exports = {
-  index: taskIndex,
-  show: taskShow,
-  create: taskCreate,
-  update: taskUpdate,
-  delete: taskDelete
+  index: charityIndex,
+  show: charityShow,
+  create: charityCreate,
+  update: charityUpdate,
+  delete: charityDelete
 };
 &nbsp;</pre></td></tr>
 </table></pre>
