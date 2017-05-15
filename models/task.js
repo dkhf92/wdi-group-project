@@ -9,16 +9,19 @@ const taskSchema = new mongoose.Schema({
   timestamps: true
 });
 
-taskSchema
-  .path('price')
-  .get(convertToDecimal)
-  .set(convertFromDecimal);
+// taskSchema
+//   .path('price')
+//   .get(convertToDecimal)
+//   .set(convertFromDecimal);
+//
+// function convertToDecimal(value){
+//   console.log(value, '************* get **************');
+//   return (value/100).toFixed(2);
+// }
+//
+// function convertFromDecimal(value){
+//   console.log(value, '************* set **************');
+//   return (value * 100);
+// }
 
-function convertToDecimal(value){
-  return (value/100).toFixed(2);
-}
-
-function convertFromDecimal(value){
-  return (value * 100);
-}
 module.exports = mongoose.model('Task', taskSchema);
