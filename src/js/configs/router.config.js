@@ -31,6 +31,18 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     controller: 'TasksEditCtrl',
     controllerAs: 'tasks'
   })
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: '/js/views/users/index.html',
+    controller: 'UserIndexCtrl',
+    controllerAs: 'users'
+  })
+  .state('usersShow', {
+    url: '/users/:id',
+    templateUrl: '/js/views/users/show.html',
+    controller: 'UserShowCtrl',
+    controllerAs: 'users'
+  })
   .state('login', {
     url: '/login',
     templateUrl: 'js/views/login.html',
