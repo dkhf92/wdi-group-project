@@ -26,15 +26,7 @@ app.use('/api', expressJWT({ secret: config.secret })
   .unless({
     path: [
       { url: '/api/register', methods: ['POST'] },
-<<<<<<< HEAD
-      { url: '/api/login',    methods: ['POST'] },
-      { url: '/api/tasks',    methods: ['GET'] },
-      { url: '/api/tasks/:id', methods: ['GET', 'PUT'] }
-
-    ]
-=======
       { url: '/api/login',    methods: ['POST'] }]
->>>>>>> b5b3a80ef52e9702b80bb4dcd5bc1a947e089f58
   }));
 app.use(jwtErrorHandler);
 
