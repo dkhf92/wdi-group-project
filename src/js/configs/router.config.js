@@ -8,7 +8,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
 
   $stateProvider
   .state('tasksIndex', {
-    url: '/',
+    url: '/tasks',
     templateUrl: '/js/views/tasks/index.html',
     controller: 'TasksIndexCtrl',
     controllerAs: 'tasks'
