@@ -20,4 +20,10 @@ function MainCtrl($rootScope) {
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
     vm.isNavCollapsed = true;
   });
+
+  // function logout() {
+  //   $auth.logout();
+  //   $state.go('login');
+  // }
+  // vm.logout = logout;
 }
