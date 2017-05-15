@@ -4,5 +4,6 @@
 <p>{{ tasksShow.task.description }}</p>
 <p>Location: {{ tasksShow.task.location }}</p>
 <p>Donation to be made: £{{ tasksShow.task.price}}</p>
+<p>Requested by these users: {{ tasksShow.task.requestedBy }}</p>
 
-<button ng-click="tasksShow.task.request()" type="button" name="button">Request this task</button>
+<button ng-click="tasksShow.request()" type="button" name="button">Request this task</button>
