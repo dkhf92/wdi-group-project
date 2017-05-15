@@ -1,12 +1,14 @@
 <h1>tasksIndex</h1>
-
+<p>oiajsdiosajdjsaiodijoas</p>
 <ul>
-  <li ng-repeat="task in tasksIndex.tasks">
+  <li ng-repeat="task in vm.all">
     {{ task.name }}
     {{ task.description }}
     {{ task.location }}
   </li>
 </ul>
+{{ tasks.name}}
+{{ task.name}}
 
 {{ task.price }}
 <ul>
@@ -18,13 +20,21 @@
 </ul>
 
 <ul>
-  <li ng-repeat="task in tasksIndex.tasks">
+  <li ng-repeat="tasks in tasksIndex.tasks">
+    {{ task.name }}
+    {{ task.description }}
+    {{ task.location }}
+  </li>
+</ul>
+<ul>
+  <li ng-repeat="tasks in tasksIndex.all">
     {{ task.name }}
     {{ task.description }}
     {{ task.location }}
   </li>
 </ul>
 
+{{ 10+10 }}
 {{ TasksShow.task.name }}
 {{ }}
 {{ 2+2 }}
