@@ -9,13 +9,18 @@ function CurrentUserService(TokenService, $rootScope, User) {
   self.getUser = () => {
     const decoded = TokenService.decodeToken();
 
+
     if (decoded) {
       User
         .get({ id: decoded.id })
         .$promise
         .then(data => {
           self.currentUser = data;
+
           $rootScope.$broadcast('loggedIn');
+
+
+
         });
     }
   };
