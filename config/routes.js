@@ -3,6 +3,7 @@ const router          = express.Router();
 const tasks           = require('../controllers/tasks');
 const authentications = require('../controllers/authentications');
 const users           = require('../controllers/users');
+const charities       = require('../controllers/charities');
 
 router.route('/tasks')
 .get(tasks.index)
@@ -25,6 +26,15 @@ router.route('/users/:id')
 .get(users.show)
 .put(users.update)
 .delete(users.delete);
+
+router.route('/charities')
+.get(charities.index)
+.post(charities.create);
+
+router.route('/charities/:id')
+.get(charities.show)
+.put(charities.update)
+.delete(charities.delete);
 
 
 module.exports = router;
