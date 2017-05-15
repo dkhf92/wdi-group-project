@@ -6,9 +6,11 @@ AuthInterceptor.$inject = ['API', 'TokenService'];
 function AuthInterceptor(API, TokenService) {
   return {
     request(config){
+      const token = TokenService.getToken();
 
-      console.log('config:', config);
-
+      if (config.url.indexOf(API) === 0 && token){
+        config.headers.Authorization = `Bearer ${token}`;
+      }
       return config;
     },
     response(res) {
