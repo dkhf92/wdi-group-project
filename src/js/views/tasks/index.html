@@ -1,14 +1,14 @@
 <h1>tasksIndex</h1>
 <ul>
   <li ng-repeat="task in tasksIndex.all">
-    <a ui-sref=""<h1>{{ task.name }}</h1>
+    <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     {{ task.description }}
     {{ task.location }}
     {{ task.price }}
   </li>
 </ul>
 
-<a ui-sref="bearsShow({id: bear._id})"><h2>{{ bear.species}}</h2></a>
+
 
 <!-- requestedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
 charity: { type: mongoose.Schema.ObjectId, ref: 'Charity' } -->
