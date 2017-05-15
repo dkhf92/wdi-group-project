@@ -11,7 +11,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/tasks',
     templateUrl: '/js/views/tasks/index.html',
     controller: 'TasksIndexCtrl',
-    controllerAs: 'tasks'
+    controllerAs: 'tasksIndex'
   })
   .state('tasksNew', {
     url: '/tasks/new',
