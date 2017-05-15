@@ -2,9 +2,10 @@
 <ul>
   <li ng-repeat="task in tasksIndex.all">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+    <img ng-src="{{ task.image }}" style="margin:auto;">
     {{ task.description }}
     {{ task.location }}
-    {{ task.price }}
+    {{ task.price}}
   </li>
 </ul>
 
