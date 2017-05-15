@@ -1,5 +1,7 @@
 angular
   .module('thisApp', [
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'ui.bootstrap',
+    'ngAnimate'
   ]);

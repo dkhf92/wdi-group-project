@@ -11,15 +11,23 @@
     <link rel="stylesheet" href="/css/style.css">
     <!-- endinject -->
   </head>
+<<<<<<< HEAD
   <body>
     <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+=======
+  <body ng-controller="MainCtrl as main">
+    <nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
+>>>>>>> e8e4731457a578cc03b94c82937844c7d3ca0867
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+<<<<<<< HEAD
     <a class="navbar-brand" ui-sref="/">Home/appname</a>
   </div>
   <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
@@ -29,6 +37,17 @@
       <li><a ui-sref="login">Login</a></li>
       <li><a ui-sref="register">Register</a></li>
       <li><a ng-click="" href="#">Logout</a></li> <!-- function for logout -->
+=======
+    <a class="navbar-brand" ui-sref="tasksIndex">Home/appname</a>
+  </div>
+  <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+    <ul class="nav navbar-nav">
+      <li ng-if="main.isAuthenticated()"><a ui-sref="tasksIndex">Tasks</a></li>
+      <li ng-if="main.isAuthenticated()"><a ui-sref="tasksNew">Add a Task</a></li>
+      <li ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></li>
+      <li ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></li>
+      <li ng-if="main.isAuthenticated()"><a ng-click="" href="#">Logout</a></li> <!-- function for logout -->
+>>>>>>> e8e4731457a578cc03b94c82937844c7d3ca0867
     </ul>
   </div>
 </nav>
