@@ -154,7 +154,7 @@ describe('Task tests', () => {
 
           expect(task)
             .to.have.property('price')
-            .and.to.equal(8.99);
+            .and.to.equal(899);
 
           done();
         });
