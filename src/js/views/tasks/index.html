@@ -1,15 +1,10 @@
 <h1>tasksIndex</h1>
 <ul>
-  <li ng-repeat="task in tasksIndex.all">
+  <li class="col-sm-4 col-md-4 col-lg-4 task" ng-repeat="task in tasksIndex.all">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
-    <img ng-src="{{ task.image }}" style="margin:auto;">
+    <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
     <p>{{ task.description }}</p>
-    <p>{{ task.location }}</p>
-    <p>{{ task.price}}</p>
+    <p>Location: {{ task.location }}</p>
+    <p>Donation to be made: £{{ task.price}}</p>
   </li>
 </ul>
-
-
-
-<!-- requestedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
-charity: { type: mongoose.Schema.ObjectId, ref: 'Charity' } -->

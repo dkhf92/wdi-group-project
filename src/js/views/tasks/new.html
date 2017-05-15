@@ -1,13 +1,22 @@
-<h1>Add a task</h1>
-
-<form ng-submit="">
-  <input type="text" name="name" value="">
-  <input type="text" name="description" value="">
-  <input type="text" name="location" value="">
-  <input type="number" name="price" value="">
-
-  <button type="button" name="button">Cancel</button>
-  <button type="button" name="button">Create</button>
+<h1>New Task/Job</h1>
+<form ng-submit="tasksNew.create()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" ng-model="tasksNew.task.name">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" name="description" id="description" ng-model="tasksNew.task.description">
+  </div>
+  <div>
+    <label for="location">Location</label>
+    <input type="text" name="location" id="location" ng-model="tasksNew.task.location">
+  </div>
+  <div>
+    <label for="price">Price</label>
+    <input type="text" name="price" id="price" ng-model="tasksNew.task.price">
+  </div>
+  <input type="submit" value="Add Task"/>
 </form>
 
 

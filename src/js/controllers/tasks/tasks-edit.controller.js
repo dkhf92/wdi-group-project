@@ -8,6 +8,8 @@ function TasksEditCtrl($stateParams, Task, $state){
   vm.task = Task.get($stateParams);
   vm.update = tasksUpdate;
 
+  console.log(vm.task);
+
   function tasksUpdate(){
     Task
     .update({id: $stateParams.id }, vm.task)

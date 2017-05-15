@@ -25,18 +25,19 @@
       <a class="navbar-brand" ui-sref="tasksIndex">Home/appname</a>
     </div>
     <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-left">
+
+
 
         <li><a ui-sref="tasksIndex">Tasks</a></li>
         <li><a ui-sref="tasksNew">Add a Task</a></li>
-
-        <div class="nav navbar-nav navbar-right">
-          <li><a ui-sref="register">Register</a></li>
-          <li><a ui-sref="login">Login</a></li>
-          <li ng-show="main.user"><a ng-click="main.logout()" href="#">Logout</a></li>
-        </div>
-
-        <li>
+        <li><a ui-sref="charity">Charities</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-rightsh">
+        <li><a ui-sref="register" ng-hide="main.user">Register</a></li>
+        <li><a ui-sref="login" ng-hide="main.user">Login</a></li>
+        <li ng-show="main.user"><a ng-click="main.logout()" href="#">Logout</a></li>
+        <li ng-show="main.user">
           <p class="navbar-text">Welcome, {{ main.user.username }}</p>
         </li>
 
@@ -44,7 +45,7 @@
       </ul>
     </div>
   </nav>
-  <main ui-view>
+  <main class="container" ui-view>
   </main>
 </body>
 </html>
