@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="thisApp">
   <head>
+    <base href="/">
     <meta charset="utf-8">
     <title>THISAPP</title>
     <!-- inject:js -->
@@ -9,7 +10,27 @@
     <!-- endinject -->
   </head>
   <body>
-    <h1>Potato</h1>
+    <nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" ui-sref="/">Home/appname</a>
+  </div>
+  <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+    <ul class="nav navbar-nav">
+      <li><a ui-sref="tasksIndex">Tasks</a></li>
+      <li><a ui-sref="tasksNew">Add a Task</a></li>
+      <li><a ui-sref="login">Login</a></li>
+      <li><a ui-sref="register">Register</a></li>
+      <li><a ng-click="" href="#">Logout</a></li> <!-- function for logout -->
+    </ul>
+  </div>
+</nav>
+    {{ 1+ 1}}
     <main ui-view>
 
     </main>

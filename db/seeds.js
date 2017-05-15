@@ -5,8 +5,8 @@ const env        = require('../config/env');
 mongoose.connect(env.db['development']);
 
 const Task = require('../models/task');
-
-// User.collection.drop();
+const User = require('../models/user');
+User.collection.drop();
 
 Task
 .create([
