@@ -1,7 +1,7 @@
 <h1>tasksIndex</h1>
 <ul>
   <li ng-repeat="task in tasksIndex.all">
-    <h1>{{ task.name }}</h1>
+    <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     {{ task.description }}
     {{ task.location }}
     {{ task.price }}
