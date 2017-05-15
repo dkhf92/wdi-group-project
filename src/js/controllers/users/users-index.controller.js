@@ -2,10 +2,10 @@ angular
 .module('thisApp')
 .controller('UserIndexCtrl', UserIndexCtrl);
 
-UserIndexCtrl.$inject = ['Task'];
-function UserIndexCtrl(Task){
+UserIndexCtrl.$inject = ['User'];
+function UserIndexCtrl(User){
   const vm  = this;
-  vm.tasks = Task.query();
+  vm.users = User.query();
   // vm.delete  = tasksDelete;
   //
   //
