@@ -11,7 +11,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/tasks',
     templateUrl: '/js/views/tasks/index.html',
     controller: 'TasksIndexCtrl',
-    controllerAs: 'tasks'
+    controllerAs: 'tasksIndex'
   })
   .state('tasksNew', {
     url: '/tasks/new',
@@ -30,6 +30,18 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     templateUrl: '/js/views/tasks/edit.html',
     controller: 'TasksEditCtrl',
     controllerAs: 'tasks'
+  })
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: '/js/views/users/index.html',
+    controller: 'UserIndexCtrl',
+    controllerAs: 'users'
+  })
+  .state('usersShow', {
+    url: '/users/:id',
+    templateUrl: '/js/views/users/show.html',
+    controller: 'UserShowCtrl',
+    controllerAs: 'users'
   })
   .state('login', {
     url: '/login',
