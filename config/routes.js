@@ -5,13 +5,13 @@ const authentications = require('../controllers/authentications');
 const users           = require('../controllers/users');
 
 router.route('/tasks')
-.get(tasks.index);
-// .post(tasks.create);
-//
-// router.route('/tasks/:id')
-// .get(tasks.show)
-// .put(tasks.update)
-// .delete(tasks.delete);
+.get(tasks.index)
+.post(tasks.create);
+
+router.route('/tasks/:id')
+.get(tasks.show)
+.put(tasks.update)
+.delete(tasks.delete);
 
 router.route('/register')
 .post(authentications.register);
