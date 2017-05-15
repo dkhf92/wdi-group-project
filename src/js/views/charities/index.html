@@ -1,1 +1,13 @@
 <h1>Search Charities</h1>
+
+<form ng-submit="charities.charitySearch()">
+  <div class="form-group">
+    <input class="form-control" type="text" name="charity" ng-model="charities.charity" placeholder="Search charities...">
+  </div>
+  <input class="btn btn-primary" type="submit" value="Submit">
+</form>
+
+<div ng-repeat="charity in charities.charities">
+  <h1>{{ charity.charityDisplayName }}</h1>
+
+</div>
