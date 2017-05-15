@@ -12,17 +12,17 @@ const taskSchema = new mongoose.Schema({
   timestamps: true
 });
 
-taskSchema
-  .path('price')
-  .get(convertToDecimal)
-  .set(convertFromDecimal);
-
-function convertToDecimal(value){
-  return (value/100);
-}
-
-function convertFromDecimal(value){
-  return (value * 100).toFixed(2);
-}
+// taskSchema
+//   .path('price')
+//   .get(convertToDecimal)
+//   .set(convertFromDecimal);
+//
+// function convertToDecimal(value){
+//   return (value/100);
+// }
+//
+// function convertFromDecimal(value){
+//   return (value * 100).toFixed(2);
+// }
 
 module.exports = mongoose.model('Task', taskSchema);

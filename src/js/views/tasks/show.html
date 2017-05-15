@@ -1,9 +1,8 @@
-<h1>tasks</h1>
+<h1>{{ tasksShow.task.name }}</h1>
 
-<!-- <h1>{{ tasksShow.task.name }}</h1> -->
-<!-- {{ tasksShow.task.description }}
-{{ tasksShow.task.location }}
-{{ tasksShow.task.price }} -->
+<img class="taskImg" ng-src="{{ tasksShow.task.image }}" style="margin:auto;">
+<p>{{ tasksShow.task.description }}</p>
+<p>Location: {{ tasksShow.task.location }}</p>
+<p>Donation to be made: £{{ tasksShow.task.price}}</p>
 
-
-{{ tasksShow.task.name }}
+<button ng-click="tasksShow.task.request()" type="button" name="button">Request this task</button>
