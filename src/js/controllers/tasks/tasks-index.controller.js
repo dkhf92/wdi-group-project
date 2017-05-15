@@ -7,7 +7,6 @@ function TasksIndexCtrl(Task, $state){
   const vm  = this;
   vm.all = Task.query();
 
-
   vm.delete  = tasksDelete;
 
 
