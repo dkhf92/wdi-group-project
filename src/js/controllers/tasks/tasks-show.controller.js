@@ -19,10 +19,9 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, User){
       .update({ id: $stateParams.id }, vm.task)
       .$promise
       .then(() => {
+
         console.log('TASK: ', vm.task);
       });
   };
 
-  vm.requests = User.get(vm.task.requestedBy);
-  console.log(vm.requests);
 }
