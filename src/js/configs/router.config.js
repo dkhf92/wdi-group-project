@@ -31,6 +31,18 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     controller: 'TasksEditCtrl',
     controllerAs: 'tasks'
   })
+  .state('usersIndex', {
+    url: '/users',
+    templateUrl: '/js/views/users/index.html',
+    controller: 'UserIndexCtrl',
+    controllerAs: 'users'
+  })
+  .state('usersShow', {
+    url: '/users/:id',
+    templateUrl: '/js/views/users/show.html',
+    controller: 'UserShowCtrl',
+    controllerAs: 'users'
+  })
   .state('login', {
     url: '/login',
     templateUrl: 'js/views/login.html',
@@ -40,6 +52,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     url: '/register',
     templateUrl: 'js/views/register.html',
     controller: 'RegisterCtrl as register'
+  })
+  .state('charity', {
+    url: '/charities',
+    templateUrl: 'js/views/charities/index.html',
+    controller: 'CharitySearchCtrl as charities'
   });
 
   $urlRouterProvider.otherwise('/');

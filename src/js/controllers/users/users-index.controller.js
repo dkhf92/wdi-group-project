@@ -9,9 +9,9 @@ function UserIndexCtrl(Task){
   // vm.delete  = tasksDelete;
   //
   //
-  // function tasksDelete(activity) {
+  // function tasksDelete(task) {
   //   Task
-  //   .remove({ id: activity._id })
+  //   .remove({ id: task._id })
   //   .$promise
   //   .then(() => {
   //     $state.go('tasksIndex');
