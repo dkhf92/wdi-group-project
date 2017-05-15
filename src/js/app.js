@@ -2,5 +2,8 @@ angular
   .module('thisApp', [
     'ui.router',
     'ngResource',
-    'angular-jwt'
+    'angular-jwt',
+    'ui.bootstrap',
+    'ngAnimate'
+
   ]);
