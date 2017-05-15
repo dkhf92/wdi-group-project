@@ -22,7 +22,7 @@ Task
     image: 'http://www.ikea.com/gb/en/images/products/tarva-bed-frame-pine-lur%C3%B6y__0448696_pe598331_s4.jpg',
     description: 'Help me move my bed, I live on 10th floor without elevator',
     location: 'Harrow',
-    price: 9.99
+    price: 10
   },{
     name: 'A consert',
     image: 'http://www.candjonline.com/images/_og_images/img_audio_03.jpg',

@@ -16,18 +16,14 @@ function CurrentUserService(TokenService, $rootScope, User) {
         .$promise
         .then(data => {
           self.currentUser = data;
-
           $rootScope.$broadcast('loggedIn');
-
-
-
         });
     }
   };
   self.removeUser = () => {
     self.currentUser = null;
     TokenService.removeToken();
-    $rootScope.$broadcast('loogedOut');
+    $rootScope.$broadcast('loggedOut');
   };
   self.getUser();
 }
