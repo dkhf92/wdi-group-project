@@ -26,6 +26,10 @@
     </div>
     <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
       <ul class="nav navbar-nav">
+
+
+         <!-- function for logout -->
+
         <li><a ui-sref="tasksIndex">Tasks</a></li>
         <li><a ui-sref="tasksNew">Add a Task</a></li>
         <li><a ui-sref="login">Login</a></li>
@@ -33,6 +37,11 @@
         <li><a ui-sref="charity">Charities</a></li>
         <li><a ui-sref="usersIndex">UserIndex</a></li>
         <li><a ng-click="main.logout()" href="#">Logout</a></li> <!-- function for logout -->
+        <li ng-show="main.user"><a ng-click="main.logout()" href="#">Logout</a></li>
+        <li>
+          <p class="navbar-text">Welcome, {{ main.user.username }}</p>
+        </li>
+
 
       </ul>
     </div>
