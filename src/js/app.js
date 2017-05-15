@@ -1,5 +1,6 @@
 angular
   .module('thisApp', [
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'angular-jwt'
   ]);
