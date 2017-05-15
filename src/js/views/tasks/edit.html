@@ -1,23 +1,23 @@
 <h1>Update a task/job</h1>
 
 <form ng-submit="tasksEdit.update()">
-  <div>
-  <label for="name">Name</label>
-  <input type="text" name="name" id="name" ng-model="tasksEdit.task.name">
-</div>
-<div>
-  <label for="description">Description</label>
-  <input type="text" name="description" id="description" ng-model="tasksEdit.task.description">
-</div>
-<div>
-  <label for="location">Location</label>
-  <input type="text" name="location" id="location" ng-model="tasksEdit.task.location">
-</div>
-<div>
-  <label for="price">Price</label>
-  <input type="text" name="price" id="price" ng-model="tasksEdit.task.price">
-</div>
-<input type="submit" value="Update Task"/>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" id="name" ng-model="tasksEdit.task.name">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input class="form-control" type="text" name="description" id="description" ng-model="tasksEdit.task.description">
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input class="form-control" type="text" name="location" id="location" ng-model="tasksEdit.task.location">
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input class="form-control" type="text" name="price" id="price" ng-model="tasksEdit.task.price">
+  </div>
+  <input class="btn" type="submit" value="Update Task"/>
 </form>
 
 <!-- ui-sref="" redirect if user clicks cancel? -->
