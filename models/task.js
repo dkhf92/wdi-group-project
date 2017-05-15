@@ -4,7 +4,8 @@ const taskSchema = new mongoose.Schema({
   name: { type: String, trim: true, required: true },
   description: { type: String, trim: true, required: true },
   location: { type: String, trim: true, required: true },
-  price: { type: Number, required: true}
+  price: { type: Number, required: true},
+  requestedBy: { type: Array }
 },{
   timestamps: true
 });
@@ -15,12 +16,10 @@ taskSchema
   .set(convertFromDecimal);
 
 function convertToDecimal(value){
-  console.log(value, '************* get **************');
   return (value/100);
 }
 
 function convertFromDecimal(value){
-  console.log(value, '************* set **************');
   return (value * 100).toFixed(2);
 }
 
