@@ -58,6 +58,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     templateUrl: '/js/views/charities/index.html',
     controller: 'CharitySearchCtrl as charities'
   })
+  .state('charityShow', {
+    url: '/charities/:id',
+    templateUrl: '/js/views/charities/show.html',
+    controller: 'CharityShowCtrl as charity'
+  })
   .state('home', {
     url: '/',
     templateUrl: '/js/views/home.html'
