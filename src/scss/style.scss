@@ -1,6 +1,10 @@
 // Import all of your scss files here
 body{
 background: white;
+padding: 30px;
+main{
+  padding: 20px;
+}
 a{
   text-decoration: none;
 }
@@ -12,6 +16,7 @@ a{
 
 .taskImg {
   max-width: 200px;
+  border-radius: 10px;
 }
 
 .pl {
