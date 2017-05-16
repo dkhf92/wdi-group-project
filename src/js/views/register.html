@@ -1,26 +1,50 @@
 <h1>register</h1>
 
-<form ng-submit="register.register()">
-  <div class="form-group">
-    <input class="form-control" type="text" name="username" ng-model="register.user.username" placeholder="Username">
+<form ng-submit="register.register()" class="measure center">
+  <div class="mt3">
+    <label class="db fw6 lh-copy f6" for="username">Username</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="username" ng-model="register.user.username" placeholder="Username">
   </div>
   <div class="form-group">
-    <input class="form-control" type="text" name="firstName" ng-model="register.user.firstName" placeholder="First name">
+    <label class="db fw6 lh-copy f6" for="firstName">First Name</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="firstName" ng-model="register.user.firstName" placeholder="First name">
   </div>
   <div class="form-group">
-    <input class="form-control" type="text" name="lastName" ng-model="register.user.lastName" placeholder="Last name">
+    <label class="db fw6 lh-copy f6" for="lastName">Last Name</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="lastName" ng-model="register.user.lastName" placeholder="Last name">
   </div>
   <div class="form-group">
-    <input class="form-control" type="text" name="image" ng-model="register.user.image" placeholder="Image">
+    <label class="db fw6 lh-copy f6" for="Image">Image</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="image" ng-model="register.user.image" placeholder="Image">
   </div>
   <div class="form-group">
-    <input class="form-control" type="email" name="email" ng-model="register.user.email" placeholder="Email">
+    <label class="db fw6 lh-copy f6" for="email">Email</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email" ng-model="register.user.email" placeholder="Email">
   </div>
   <div class="form-group">
-    <input class="form-control" type="password" name="password" ng-model="register.user.password" placeholder="Password">
+    <label class="db fw6 lh-copy f6" for="password">Password</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password" ng-model="register.user.password" placeholder="Password">
   </div>
   <div class="form-group">
-    <input class="form-control" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation">
+    <label class="db fw6 lh-copy f6" for="passwordConfirmation">Password Confirmation</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="passwordConfirmation" ng-model="register.user.passwordConfirmation" placeholder="Password confirmation">
   </div>
-  <input class="btn btn-primary" type="submit" value="Submit" />
+    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib " type="submit" value="Submit" ui-sref="tasksIndex">
+</form>
+
+
+<form ng-submit="login.login()" class="measure center">
+  <h1>Login</h1>
+  <div class="mt3">
+    <label class="db fw6 lh-copy f6" for="email-address">Email</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email"  id="email" ng-model="login.user.email" placeholder="Email">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="password">Password</label>
+    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" ng-model="login.user.password" placeholder="Password">
+  </div>
+  <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib " type="submit" value="Submit" ui-sref="tasksIndex">
+  <div class="lh-copy mt3">
+    <a ui-sref="register" class="f6 link dim black db">Sign up</a>
+  </div>
 </form>
