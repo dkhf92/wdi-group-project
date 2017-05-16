@@ -1,24 +1,5 @@
 // Import all of your scss files here
-body{
-background: white;
-padding: 30px;
-main{
-  padding: 20px;
-}
-a{
-  text-decoration: none;
-}
-}
-.task {
-  list-style: none;
-  height: 400px;
-}
-
-.taskImg {
-  max-width: 200px;
-  border-radius: 10px;
-}
-
-.pl {
-  font-size: 12px;
-}
+@import "variables";
+@import "structure";
+@import "typography";
+@import "media";
