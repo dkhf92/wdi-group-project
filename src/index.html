@@ -12,12 +12,13 @@
   <!-- endinject -->
 
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
 </head>
 <body ng-controller="MainCtrl as main">
   <header class="sans-serif">
     <nav class="dt w-100 mw8 center">
       <div class="dtc w2 v-mid pa3">
-        <a ui-sref="home" class="link dim black-70 hover-navy-60 f3">
+        <a ui-sref="home" class="link dim white hover-white-90 f3 logo">
           FeelGood
         </a>
       </div>
@@ -32,7 +33,9 @@
       </div>
     </nav>
   </header>
+  
   <main ui-view  style="clear: both">
   </main>
+
 </body>
 </html>

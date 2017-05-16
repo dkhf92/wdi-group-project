@@ -1,23 +1,20 @@
 <section class="content">
-<div class="fl w-two-thirds">
-<h1>tasksIndex</h1>
+<div class="">
 <ul>
-  <li class="task fl w-50 ma1 tasks-list" ng-repeat="task in tasksIndex.available">
-    <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+  <li class="task fl w-50 pa2 tasks-list" ng-repeat="task in tasksIndex.available">
     <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-    <p>{{ task.description }}</p>
+    <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     <p>Location: {{ task.location }}</p>
     <p>Donation to be made: £{{ task.price}}</p>
   </li>
 </ul>
 </div>
 
-<div class="fl w-third created-tasks">
+<div class="">
 <h2>My Created Tasks</h2>
   <li class="task" ng-repeat="task in tasksIndex.created">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-    <p>{{ task.description }}</p>
     <p>Location: {{ task.location }}</p>
     <p>Donation to be made: £{{ task.price}}</p>
     <ul>
@@ -31,7 +28,6 @@
   <li class="task" ng-repeat="task in tasksIndex.requested">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-    <p>{{ task.description }}</p>
     <p>Location: {{ task.location }}</p>
     <p>Donation to be made: £{{ task.price}}</p>
 
