@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <div class="w-100 w-40-ns" ng-show="vm.task">
+  <div class="w-100 w-40-ns" ng-show="task">
     <h2>My Created Tasks</h2>
     <li class="task" ng-repeat="task in tasksIndex.created">
       <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
