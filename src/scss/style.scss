@@ -1,5 +1,10 @@
 // Import all of your scss files here
-
+body{
+background: white;
+a{
+  text-decoration: none;
+}
+}
 .task {
   list-style: none;
   height: 400px;
