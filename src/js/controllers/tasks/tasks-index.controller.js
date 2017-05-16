@@ -5,7 +5,6 @@ angular
 TasksIndexCtrl.$inject = ['Task', '$state', 'CurrentUserService', 'filterFilter'];
 function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter){
   const vm  = this;
-  vm.all = Task.query();
   vm.user = CurrentUserService.currentUser;
 
   vm.delete  = tasksDelete;
@@ -19,12 +18,25 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter){
     });
   }
 
+  function availableTasks() {
+    const params = { createdBy: '!' + vm.user._id };
+    Task
+      .query()
+      .$promise
+      .then(tasks => {
+        vm.available = filterFilter(tasks, params);
+      });
+  }
+
   function filterTasks() {
     const params = { createdBy: vm.user._id };
-    // if (vm.useStrength) params.strength = vm.strength;
-    // if (vm.useRoast) params.roast       = vm.roast;
-
-    vm.filtered = filterFilter(vm.all, params);
+    Task
+      .query()
+      .$promise
+      .then(tasks => {
+        vm.filtered = filterFilter(tasks, params);
+      });
   }
   filterTasks();
+  availableTasks();
 }
