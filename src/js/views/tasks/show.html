@@ -3,6 +3,7 @@
 <img class="taskImg" ng-src="{{ tasksShow.task.image }}" style="margin:auto;">
 <p>{{ tasksShow.task.description }}</p>
 <p>Location: {{ tasksShow.task.location }}</p>
+<p>Date: {{ tasksShow.task.date }}</p>
 <p>Donation to be made: £{{ tasksShow.task.price}}</p>
 <p>Requested by these users:</p>
 <ul>
@@ -13,9 +14,10 @@
   <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
 </ul>
 
+
 {{ tasksShow.charity }}
   <select ng-model="tasksShow.charity" class="" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
   </select>
-<button ng-click="tasksShow.request()" type="button" name="button">Request this task</button>
+<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ng-click="tasksShow.request()" type="button" name="button">Request this task</button>

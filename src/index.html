@@ -20,20 +20,20 @@
   <header class="sans-serif head">
     <nav class="dt w-100 mw8 center">
       <div class="dtc w2 v-mid pa3">
-        <a ui-sref="home" class="link dim white hover-white-90 f3" id="logo">
+        <a ui-sref="home" class="link dim white hover-white-90 f3 tracked-tight" id="logo">
           FeelGood
         </a>
       </div>
       <div class="dtc v-mid tr pa2">
 
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3 nav-link" ui-sref="/" id="myBtn" >How it Works</a>
-        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link" ui-sref="/" >About</a>
+        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="charity" ng-show="main.user">Charities</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link" ui-sref="tasksIndex" ng-show="main.user" >Tasks</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link" ui-sref="tasksNew" ng-show="main.user">Create Task</a>
         <a class="f6 fw4 hover-ba no-underline black-70 dib ml2 pv2 ph3 ba nav-link"  ui-sref="register" ng-hide="main.user">Sign up</a>
         <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3 pointer nav-link">Logout</a>
 
-        <p class="ba fw6 no-underline black-70 dn dib-l pv2 ph3" ng-show="main.user">Welcome, {{ main.user.username }}!</p>
+        <p class="ba fw6 no-underline black-70 dn dib-l pv2 ph3 ttc" ng-show="main.user">{{ main.user.username }}</p>
       </div>
     </nav>
   </header>
