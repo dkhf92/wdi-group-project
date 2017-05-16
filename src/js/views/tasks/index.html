@@ -20,7 +20,7 @@
       <p>Location: {{ task.location }}</p>
       <p>Reward: £{{ task.price}}</p>
       <ul>
-        <li ng-repeat="user in task.requestedBy">Requested: {{ user.username }}</li>
+        <li ng-repeat="request in task.requestedBy">Requested: {{ request.user.username }}</li>
       </ul>
     </li>
   </div>

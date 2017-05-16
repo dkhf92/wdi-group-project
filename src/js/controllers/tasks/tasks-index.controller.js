@@ -62,7 +62,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     .then(tasks => {
       const requested = [];
       tasks.forEach(task => {
-        if(task.requestedBy.find(x => x._id === vm.user._id)) {
+        if(task.requestedBy.find(x => x.user._id === vm.user._id)) {
           console.log('firing');
           requested.push(task);
         }
