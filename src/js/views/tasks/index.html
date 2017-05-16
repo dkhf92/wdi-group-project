@@ -14,7 +14,8 @@
 <div class="row">
 <h2>My Created Tasks</h2>
 <ul>
-  <li class="col-sm-4 col-md-4 col-lg-4 task" ng-repeat="task in tasksIndex.all | filter: { createdBy: tasksIndex.user._id }">
+  <!-- <li class="col-sm-4 col-md-4 col-lg-4 task" ng-repeat="task in tasksIndex.all | filter: { createdBy: tasksIndex.user._id }"> -->
+  <li class="col-sm-4 col-md-4 col-lg-4 task" ng-repeat="task in tasksIndex.filtered">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
     <p>{{ task.description }}</p>
