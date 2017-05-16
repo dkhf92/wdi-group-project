@@ -2,6 +2,11 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.logo{
+  font-family: 'Baloo', cursive;
+  text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+}
+
 a{
   text-decoration: none;
   font-size: 0.6em;
@@ -11,4 +16,11 @@ a{
 
 .pl {
   font-size: 12px;
+}
+.nav-link{
+  font-size: 1em;
+  padding: 20px;
+  &:hover{
+    background: rgba(255,255,255,0.2);
+  }
 }
