@@ -5,7 +5,8 @@ const charitySchema = new mongoose.Schema({
   logoUrl: { type: String },
   charityId: { type: Number },
   description: { type: String },
-  profilePageUrl: { type: String }
+  profilePageUrl: { type: String },
+  favouritedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
 });
 
 module.exports = mongoose.model('Charity', charitySchema);
