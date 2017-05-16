@@ -6,8 +6,10 @@ mongoose.connect(env.db['development']);
 
 const Task = require('../models/task');
 const User = require('../models/user');
+const Charity = require('../models/charity');
 User.collection.drop();
 Task.collection.drop();
+Charity.collection.drop();
 
 Task
 .create([

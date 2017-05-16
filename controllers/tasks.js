@@ -3,7 +3,7 @@ const Task = require('../models/task');
 function taskIndex(req, res, next){
   Task
   .find()
-  .populate(['requestedBy'])
+  .populate(['requestedBy.user', 'requestedBy.charity'])
   .exec()
   .then(tasks => {
     return res.status(200).json(tasks);
@@ -39,7 +39,7 @@ function taskCreate(req, res){
 function taskUpdate(req, res){
   Task
     .findByIdAndUpdate(req.params.id, req.body, { new: true}, (err, task) => {
-      if(err) return res.status(500).json({ message: 'Oops! something went wrong'});
+      if(err) return res.status(500).json({ message: 'Oops! something went wrong', error: err});
       if(!task) return res.status(404).json({ message: 'There is no task here!' });
       return res.status(200).json(task);
     });

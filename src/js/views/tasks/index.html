@@ -1,18 +1,35 @@
 <section class="content">
-<div class="row">
+  <h3 class="b tl white measure">Hey <span class="ttc">{{main.user.username}}</span>, wanna do something good today? Here's a list of tasks to choose from:</h3>
+  <div class="row">
+    <div class="w-100 w-60-ns">
+      <div class="task fl w-100 w-50-ns" ng-repeat="task in tasksIndex.available">
+        <div class="fl w-1 pa4 bg-white task-inner ma2 shadow-2">
+          <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+          <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+          <p>Location: {{ task.location }}</p>
+          <p>Reward: £{{ task.price}}</p>
+          <a class="f6 link dim br2 ba bw2 ph3 pv2 mb2 dib blue" ui-sref="tasksShow({ id: task._id })">Apply</a>
+        </div>
+      </div>
+    </div>
 
-
-  <div class="w-100 w-60-ns">
-    <div class="task fl w-100 w-50-ns ss-w-1" ng-repeat="task in tasksIndex.available">
-      <div class="fl w-1 pa4 bg-white task-inner ma2 shadow-2">
-        <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+    <div class="w-100 w-40-ns dib cf" ng-show="tasksIndex.created">
+      <h3 class="white">Tasks I have created</h3>
+      <div class="mh4" ng-repeat="task in tasksIndex.created">
+        <div class="pa4 bg-white task-inner shadow-2">
         <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+        <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
         <p>Location: {{ task.location }}</p>
         <p>Reward: £{{ task.price}}</p>
+        <ul>
+          <li ng-repeat="user in task.requestedBy">Requested: {{ user.name }}</li>
+        </ul>
       </div>
+    </div>
     </div>
   </div>
 
+<!-- <<<<<<< HEAD -->
   <div class="w-100 w-40-ns" ng-show="tasksIndex.created">
     <li class="task" ng-repeat="task in tasksIndex.created">
       <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
@@ -20,20 +37,20 @@
       <p>Location: {{ task.location }}</p>
       <p>Reward: £{{ task.price}}</p>
       <ul>
-        <li ng-repeat="user in task.requestedBy">Requested: {{ user.username }}</li>
+        <li ng-repeat="request in task.requestedBy">Requested: {{ request.user.username }}</li>
       </ul>
     </li>
   </div>
+<!-- ======= -->
+<div class="w-100 w-40-ns dib" ng-show="tasksIndex.requested">
+  <h3 class="white">Tasks I have requested</h3>
+  <li class="task" ng-repeat="task in tasksIndex.requested">
+    <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+    <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+    <p>Location: {{ task.location }}</p>
+    <p>Reward: £{{ task.price}}</p>
+  </li>
+<!-- >>>>>>> development -->
 </div>
-  <div class="row">
-    <h2>Tasks I have requested</h2>
-    <li class="task" ng-repeat="task in tasksIndex.requested">
-      <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
-      <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-      <p>Location: {{ task.location }}</p>
-      <p>Reward: £{{ task.price}}</p>
 
-
-    </li>
-  </div>
 </section>
