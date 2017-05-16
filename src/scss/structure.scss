@@ -7,21 +7,20 @@ main{
   color: black;
   text-align: center;
 }
+
 .content{
   width: 80%;
   margin: 0 auto;
-  border: 2px solid $orange;
   border-radius: 10px;
 }
 
 .task{
   color: black;
+  background: white;
   list-style: none;
-  border: 1px solid $liver;
+  width: 60%;
   height: 400px;
-  margin: 2px;
   padding: 5px;
-
   &:hover{
     background-color: rgba(255,255,255,0.3);
   }
