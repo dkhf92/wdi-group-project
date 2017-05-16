@@ -1,4 +1,7 @@
 // Import all of your scss files here
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
 body{
 background: white;
 padding: 30px;
@@ -21,8 +24,4 @@ a{
 
 .pl {
   font-size: 12px;
-}
-
-.potato {
-  line-height: 50px;
 }
