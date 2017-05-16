@@ -1,4 +1,6 @@
 <section class="content">
+<div class="row">
+
 
   <div class="w-100 w-60-ns">
     <div class="task fl w-100 w-50-ns ss-w-1" ng-repeat="task in tasksIndex.available">
@@ -11,8 +13,7 @@
     </div>
   </div>
 
-  <div class="w-100 w-40-ns" ng-show="task">
-    <h2>My Created Tasks</h2>
+  <div class="w-100 w-40-ns" ng-show="tasksIndex.created">
     <li class="task" ng-repeat="task in tasksIndex.created">
       <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
       <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
@@ -23,7 +24,7 @@
       </ul>
     </li>
   </div>
-
+</div>
   <div class="row">
     <h2>Tasks I have requested</h2>
     <li class="task" ng-repeat="task in tasksIndex.requested">
