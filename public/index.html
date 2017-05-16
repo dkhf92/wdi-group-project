@@ -5,47 +5,45 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
   <title>THISAPP</title>
+
   <!-- inject:js -->
   <script src="/js/app.js"></script>
   <!-- endinject -->
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/style.css">
   <!-- endinject -->
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
 </head>
 <body ng-controller="MainCtrl as main">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <a class="navbar-brand" ui-sref="tasksIndex">Home/appname</a>
-    </div>
-    <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
-      <ul class="nav navbar-nav navbar-left">
-
-
-
-        <li><a ui-sref="tasksIndex">Tasks</a></li>
-        <li><a ui-sref="tasksNew">Add a Task</a></li>
-        <li><a ui-sref="charity">Charities</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a ui-sref="register" ng-hide="main.user">Register</a></li>
-        <li><a ui-sref="login" ng-hide="main.user">Login</a></li>
-        <li ng-show="main.user"><a ng-click="main.logout()" href="#">Logout</a></li>
-        <li ng-show="main.user">
-          <p class="navbar-text">Welcome, {{ main.user.username }}!</p>
-        </li>
-
-
-      </ul>
-    </div>
-  </nav>
-  <main class="container" ui-view>
+  <header class="sans-serif">
+    <nav class="navbar navbar-default pa3 pa4-ns" role="navigation">
+      <div class="link dim black b f1 f-headline-ns lh-solid tc db mb3 mb4-ns"><a href="/">FEEL GOOD</a></div>
+      <div class="navbar-header tc-pb3">
+        <button type="button" class="navbar-toggle" ng-click="main.isNavCollapsed = !main.isNavCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" uib-collapse="main.isNavCollapsed">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a ui-sref="tasksIndex" class="link dim white f6 f4-ns dib mr3">Tasks</a></li>
+          <li><a ui-sref="tasksNew" class="link dim white f6 f4-ns dib mr3">Add a Task</a></li>
+          <li><a ui-sref="charity" class="link dim white f6 f4-ns dib mr3">Charities</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a ui-sref="register" ng-hide="main.user" class="link dim white f6 f4-ns dib mr3 ba">Register</a></li>
+          <li><a ui-sref="login" ng-hide="main.user" class="link dim white f6 f4-ns dib mr3">Login</a></li>
+          <li ng-show="main.user"><a ng-click="main.logout()" class="link dim white f6 f4-ns dib mr3">Logout</a></li>
+          <li ng-show="main.user">
+            <p class="navbar-text f6 f4-ns">Welcome, {{ main.user.username }}!</p>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main ui-view>
   </main>
 </body>
 </html>
