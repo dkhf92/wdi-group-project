@@ -3,6 +3,7 @@ const Task = require('../models/task');
 function taskIndex(req, res, next){
   Task
   .find()
+  .populate(['requestedBy'])
   .exec()
   .then(tasks => {
     return res.status(200).json(tasks);
@@ -13,7 +14,7 @@ function taskIndex(req, res, next){
 function taskShow(req, res, next){
   Task
   .findById(req.params.id)
-  .populate(['requestedBy'])
+  .populate(['requestedBy', 'assignedTo'])
   .exec()
   .then(task => {
     if(!task){
