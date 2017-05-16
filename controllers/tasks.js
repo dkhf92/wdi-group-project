@@ -3,6 +3,7 @@ const Task = require('../models/task');
 function taskIndex(req, res, next){
   Task
   .find()
+  .populate(['requestedBy'])
   .exec()
   .then(tasks => {
     return res.status(200).json(tasks);

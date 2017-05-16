@@ -8,6 +8,7 @@ const taskSchema = new mongoose.Schema({
   image: { type: String },
   requestedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  assignedTo: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   charity: { type: mongoose.Schema.ObjectId, ref: 'Charity' }
 },{
   timestamps: true
