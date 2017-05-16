@@ -28,7 +28,7 @@ function charityShow(req, res, next) {
 function charityCreate(req, res) {
   const charity = new Charity(req.body);
   charity.save(err => {
-    if(err) return res.status(500).json({ message: 'Something went wrong!'});
+    if(err) return res.status(500).json({ message: 'Something went wrong!', error: err});
     return res.status(201).json(charity);
   });
 }

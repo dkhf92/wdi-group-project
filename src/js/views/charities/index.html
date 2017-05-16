@@ -8,5 +8,6 @@
   </div>
 </form>
 <div ng-repeat="charity in charities.charities" class="measure center">
-  <p class="ph3 pv2 input-reset bg-transparent grow pointer">{{ charity.charityDisplayName }}</p>
+  <a ui-sref="charityShow({ id: {{charity.charityId }} })"><p class="ph3 pv2 input-reset bg-transparent grow pointer">{{ charity.charityDisplayName }}</p>
+  <img src="{{ charity.logoUrl }}" alt=""></a>
 </div>
