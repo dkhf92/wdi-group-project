@@ -4,7 +4,7 @@
   <base href="/">
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-  <title>THISAPP</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">  <title>THISAPP</title>
 
   <!-- inject:js -->
   <script src="/js/app.js"></script>
@@ -12,6 +12,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/css/style.css">
   <!-- endinject -->
+
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
 </head>
 <body ng-controller="MainCtrl as main">
@@ -25,18 +26,57 @@
         </a>
       </div>
       <div class="dtc v-mid tr pa2">
-        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3" ui-sref="/" >How it Works</a>
+        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3" ui-sref="/" id="myBtn" >How it Works</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3" ui-sref="/" >About</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3" ui-sref="tasksIndex" >Tasks</a>
+        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3" ui-sref="tasksNew" >Create Task</a>
         <a class="f6 fw4 hover-ba no-underline black-70 dib ml2 pv2 ph3 ba"  ui-sref="register" ng-hide="main.user">Sign up</a>
-        <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3">Logout</a>
+        <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3 pointer">Logout</a>
 
-          <p class="ba b--orange fw6 no-underline black-70 dn dib-l pv2 ph3" ng-show="main.user">Welcome, {{ main.user.username }}!</p>
+        <p class="ba b--orange fw6 no-underline black-70 dn dib-l pv2 ph3" ng-show="main.user">Welcome, {{ main.user.username }}!</p>
 
       </div>
     </nav>
   </header>
   <main ui-view>
   </main>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+  </div>
+
+</div>
+  <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 </body>
 </html>

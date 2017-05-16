@@ -1,13 +1,12 @@
-<h1>Search Charities</h1>
-
-<form ng-submit="charities.charitySearch()">
+<form ng-submit="charities.charitySearch()" class="measure center">
+  <h1>Search Charities</h1>
   <div class="form-group">
-    <input class="form-control" type="text" name="charity" ng-model="charities.charity" placeholder="Search charities...">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="charity" ng-model="charities.charity" placeholder="Search charities...">
   </div>
-  <input class="btn btn-primary" type="submit" value="Submit">
+  <div class="mv3">
+    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search">
+  </div>
 </form>
-
-<div ng-repeat="charity in charities.charities">
-  <h1>{{ charity.charityDisplayName }}</h1>
-
+<div ng-repeat="charity in charities.charities" class="measure center">
+  <p class="ph3 pv2 input-reset bg-transparent grow pointer">{{ charity.charityDisplayName }}</p>
 </div>
