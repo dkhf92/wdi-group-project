@@ -60,10 +60,15 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     .query()
     .$promise
     .then(tasks => {
+      const requested = [];
       tasks.forEach(task => {
-        if(task.requestedBy.includes(vm.user._id)) vm.requested.push(task);
+        if(task.requestedBy.find(x => x._id === vm.user._id)) {
+          console.log('firing');
+          requested.push(task);
+        }
+        // console.log(vm.requested);
       });
-      // vm.requested = filterFilter(tasks, params);
+      vm.requested = requested;
     });
   }
 
