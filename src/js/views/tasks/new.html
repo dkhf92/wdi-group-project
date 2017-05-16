@@ -1,39 +1,22 @@
-<form ng-submit="tasksNew.create()" class="measure-center">
+<form ng-submit="tasksNew.create()" class="measure center">
   <h1>New Task/Job</h1>
   <div class="mt3">
     <label class="db fw6 lh-copy f6" for="name">Name</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksNew.task.name">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksNew.task.name" placeholder="Name">
   </div>
-  <div class="mt3">
+  <div class="mv3">
     <label class="db fw6 lh-copy f6" for="description">Description</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="description" id="description" ng-model="tasksNew.task.description">
+    <textarea id="description" name="description" class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" placeholder="Write description of task here"></textarea>
   </div>
-  <div class="mt3">
+  <div class="mv3">
     <label class="db fw6 lh-copy f6" for="location">Location</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="location" ng-model="tasksNew.task.location">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="location" ng-model="tasksNew.task.location" placeholder="e.g The Relay Building, 114 Whitechapel">
   </div>
-  <div class="mt3">
+  <div class="mv3">
     <label class="db fw6 lh-copy f6" for="price">Price</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="price" id="price" ng-model="tasksNew.task.price">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="price" id="price" ng-model="tasksNew.task.price" placeholder="e.g. 19.99$">
   </div>
-  <div class="mt3">
-    <input type="submit" value="Add Task"/>
+  <div class="mv3">
+    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add Task">
   </div>
 </form>
-
-<!--
-<form ng-submit="login.login()" class="measure center">
-  <h1>Login</h1>
-  <div class="mt3">
-    <label class="db fw6 lh-copy f6" for="email-address">Email</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email"  id="email" ng-model="login.user.email" placeholder="Email">
-  </div>
-  <div class="mv3">
-    <label class="db fw6 lh-copy f6" for="password">Password</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" ng-model="login.user.password" placeholder="Password">
-  </div>
-  <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib " type="submit" value="Submit">
-  <div class="mv3">
-    <a ui-sref="register" class="f6 link dim black db">Don't have an account? Sign up</a>
-  </div>
-</form> -->
