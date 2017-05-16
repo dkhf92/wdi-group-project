@@ -1,0 +1,8 @@
+<h1>{{ charity.charity.name }}</h1>
+
+<img src="{{ charity.charity.logoAbsoluteUrl }}" alt="">
+
+<p>{{ charity.charity.description }}</p>
+<a href="{{charity.charity.profilePageUrl}}">Take a look at their JustGiving profile</a>
+<a href="{{charity.charity.websiteUrl}}">Or their own website</a>
+<button ng-click="charity.saveCharity(charity.charity)" type="button" name="button">Favourite this charity</button>
