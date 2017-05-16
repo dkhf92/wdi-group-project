@@ -7,22 +7,7 @@ html, body {
 .logo{
   font-family: 'Baloo', cursive;
   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-  // animation-duration: 1500ms;
-  // animation-name: fadeIn;
 }
-// 
-// @keyframes fadeIn {
-//   0% {
-//     opacity: 0;
-//   }
-//   80% {
-//     opacity: 0.5;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
-
 a{
   text-decoration: none;
   font-size: 0.6em;
