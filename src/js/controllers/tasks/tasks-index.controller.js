@@ -18,6 +18,10 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter){
     });
   }
 
+  if(vm.user) {
+    createdTasks();
+    availableTasks();
+  }
   function availableTasks() {
     const params = { createdBy: '!' + vm.user._id };
     Task
@@ -28,15 +32,31 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter){
       });
   }
 
-  function filterTasks() {
+  function createdTasks() {
     const params = { createdBy: vm.user._id };
     Task
       .query()
       .$promise
       .then(tasks => {
-        vm.filtered = filterFilter(tasks, params);
+        vm.created = filterFilter(tasks, params);
       });
   }
-  filterTasks();
-  availableTasks();
+
+
+
+  // function filterTasks(a) {
+  //   const params = a;
+  //   console.log('Hi there');
+  //   console.log(a);
+  //   Task
+  //     .query()
+  //     .$promise
+  //     .then(tasks => {
+  //       console.log('yo');
+  //       return filterFilter(tasks, params);
+  //     });
+  // }
+  // vm.created = filterTasks({ createdBy: vm.user._id});
+  // vm.available = filterTasks({ createdBy: '!' + vm.user._id});
+
 }
