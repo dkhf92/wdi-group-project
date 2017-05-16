@@ -2,14 +2,18 @@
   <h1>Login</h1>
   <div class="mt3">
     <label class="db fw6 lh-copy f6" for="email-address">Email</label>
-    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email"  id="email" ng-model="login.user.email" placeholder="Email">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email"  id="email" ng-model="login.user.email" placeholder="Email">
   </div>
   <div class="mv3">
     <label class="db fw6 lh-copy f6" for="password">Password</label>
-    <input class="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" ng-model="login.user.password" placeholder="Password">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password"  id="password" ng-model="login.user.password" placeholder="Password">
   </div>
-  <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib " type="submit" value="Submit" ui-sref="tasksIndex">
-  <div class="lh-copy mt3">
-    <a ui-sref="register" class="f6 link dim black db">Sign up</a>
+
+  <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib " type="submit" value="Submit">
+
+  <div class="mv3">
+    <a ui-sref="register" class="f6 link dim black db">Don't have an account? Sign up</a>
   </div>
 </form>
+
+<!-- ui-sref="tasksIndex" -->
