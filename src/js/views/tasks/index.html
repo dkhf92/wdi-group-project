@@ -1,7 +1,8 @@
-<div class="row">
+<section class="content">
+<div class="fl w-two-thirds">
 <h1>tasksIndex</h1>
 <ul>
-  <li class="task" ng-repeat="task in tasksIndex.available">
+  <li class="task fl w-50 ma1 tasks-list" ng-repeat="task in tasksIndex.available">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
     <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
     <p>{{ task.description }}</p>
@@ -11,7 +12,7 @@
 </ul>
 </div>
 
-<div class="row">
+<div class="fl w-third created-tasks">
 <h2>My Created Tasks</h2>
   <li class="task" ng-repeat="task in tasksIndex.created">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
@@ -36,3 +37,4 @@
 
   </li>
 </div>
+</section>
