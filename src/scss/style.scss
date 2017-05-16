@@ -1,15 +1,6 @@
 // Import all of your scss files here
-body{
-background: white;
-a{
-  text-decoration: none;
-}
-}
-.task {
-  list-style: none;
-  height: 400px;
-}
-
-.taskImg {
-  max-width: 200px;
-}
+@import "variables";
+@import "modal";
+@import "media";
+@import "structure";
+@import "typography";
