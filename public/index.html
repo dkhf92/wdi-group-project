@@ -28,8 +28,9 @@
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3" ui-sref="/" >How it Works</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3" ui-sref="/" >About</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3" ui-sref="tasksIndex" >Tasks</a>
+        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3" ui-sref="tasksNew" >Create Task</a>
         <a class="f6 fw4 hover-ba no-underline black-70 dib ml2 pv2 ph3 ba"  ui-sref="register" ng-hide="main.user">Sign up</a>
-        <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3">Logout</a>
+        <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3 pointer">Logout</a>
 
         <p class="ba b--orange fw6 no-underline black-70 dn dib-l pv2 ph3" ng-show="main.user">Welcome, {{ main.user.username }}!</p>
 
