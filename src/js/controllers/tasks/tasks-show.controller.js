@@ -2,8 +2,8 @@ angular
 .module('thisApp')
 .controller('TasksShowCtrl', TasksShowCtrl);
 
-TasksShowCtrl.$inject = ['$stateParams', 'Task', 'CurrentUserService', 'User'];
-function TasksShowCtrl($stateParams, Task, CurrentUserService, User){
+TasksShowCtrl.$inject = ['$stateParams', 'Task', 'CurrentUserService'];
+function TasksShowCtrl($stateParams, Task, CurrentUserService){
   const vm  = this;
 
   vm.user = CurrentUserService.currentUser;
