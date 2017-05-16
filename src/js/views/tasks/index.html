@@ -19,5 +19,20 @@
     <p>{{ task.description }}</p>
     <p>Location: {{ task.location }}</p>
     <p>Donation to be made: £{{ task.price}}</p>
+    <ul>
+      <li ng-repeat="user in task.requestedBy">Requested: {{ user.username }}</li>
+    </ul>
+  </li>
+</div>
+
+<div class="row">
+<h2>Tasks I have requested</h2>
+  <li class="task" ng-repeat="task in tasksIndex.requested">
+    <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+    <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+    <p>{{ task.description }}</p>
+    <p>Location: {{ task.location }}</p>
+    <p>Donation to be made: £{{ task.price}}</p>
+
   </li>
 </div>
