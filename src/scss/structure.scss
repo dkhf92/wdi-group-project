@@ -1,7 +1,17 @@
+html, body {
+  background: -webkit-linear-gradient(#FF521B, #F7EF81); /* For Safari 5.1 to 6.0 */
+  // background: #5DFDCB; /* For browsers that do not support gradients */
+  // background: -o-linear-gradient(#5DFDCB, #97F9F9); /* For Opera 11.1 to 12.0 */
+  // background: -moz-linear-gradient(#5DFDCB, #97F9F9); /* For Firefox 3.6 to 15 */
+  // background: linear-gradient(#5DFDCB, #97F9F9); /* Standard syntax */
+  height: 100%;
+}
 body{
-  background-image:url('http://www.ilikewallpaper.net/iphone-6-wallpapers/download/26907/Pure-Clear-Shiny-Color-Gradation-Cube-Pattern-iPhone-6-plus-wallpaper-ilikewallpaper_com.jpg');
-  background-size: cover;
 
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
 }
 main{
@@ -28,8 +38,6 @@ main{
     animation-name: fadeIn;
   }
 }
-
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
