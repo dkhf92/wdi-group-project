@@ -13,6 +13,7 @@ const cors       = require('cors');
 const environment = app.get('env');
 
 
+
 mongoose.connect(config.db[environment]);
 
 app.use(morgan('dev'));
@@ -22,6 +23,7 @@ app.use(express.static(dest));
 app.use(cors());
 
 
+
 app.use('/api', expressJWT({ secret: config.secret })
   .unless({
     path: [
@@ -29,6 +31,7 @@ app.use('/api', expressJWT({ secret: config.secret })
       { url: '/api/login',    methods: ['POST'] }]
   }));
 app.use(jwtErrorHandler);
+
 
 function jwtErrorHandler(err, req, res, next){
   if (err.name !== 'UnauthorizedError') return next();
