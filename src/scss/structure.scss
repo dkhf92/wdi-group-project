@@ -4,7 +4,7 @@ html, body {
 }
 
 header{
-  background: #eb2e60;
+  background: $lightGrey;
 }
 main{
   text-align: center;
@@ -16,11 +16,11 @@ main{
 }
 .index-wrap{
   background: $gold; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(top, $lightBlue , $gold); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom, $lightBlue, $gold); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom, $lightBlue, $gold); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom, $lightBlue , $gold); /* Standard syntax */
-  border-radius: 10px;
+  background: -webkit-linear-gradient(top, $lightGrey, $lightBlue); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, $lightGrey, $lightBlue); /* Standard syntax */
+  // border-radius: 10px;
   padding: 40px;
   margin: 0 auto;
 }
@@ -32,21 +32,19 @@ main{
 .task-inner, .charity-inner {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  border: 5px solid $gold;
+  // border-radius: 10px;
+  // border: 5px solid $gold;
   text-align: center;
   margin: 0 auto;
   position: relative;
   &:hover{
-    background-image:url('http://www.ispi.org/images/volunteer.png');
-    text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    box-shadow: 3px 3px 5px $liver;
+    // text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
     animation-duration: 800ms;
     animation-name: fadeIn;
-    color: white;
+    // color: white;
 
-    a{
-      color: white;
-    }
+  
   }
 }
 
@@ -64,7 +62,7 @@ main{
 
 .caption{
   position: absolute;
-  background-color: $cherry;
+  background-color: $lightGrey;
   bottom: 0;
   right: 0;
   width: 100%;

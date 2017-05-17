@@ -16,8 +16,8 @@ html, body {
 .msg{
   color: black;
 }
-.apply-btn, #task-name {
-  color: $cherry;
+.apply-btn {
+  color: $blue;
 }
 .logo{
   font-family: 'Baloo', cursive;
@@ -86,7 +86,7 @@ html, body {
 a{
   text-decoration: none;
   font-size: 0.6em;
-  color: black;
+  color: $blue;
   font-weight: normal;
 }
 
