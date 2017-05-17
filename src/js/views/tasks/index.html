@@ -22,26 +22,13 @@
         <p>Location: {{ task.location }}</p>
         <p>Reward: £{{ task.price}}</p>
         <ul>
-          <li ng-repeat="user in task.requestedBy">Requested: {{ user.name }}</li>
+          <li ng-repeat="request in task.requestedBy">Requested: {{ request.user.name }}</li>
         </ul>
       </div>
     </div>
     </div>
   </div>
 
-<!-- <<<<<<< HEAD -->
-  <div class="w-100 w-40-ns" ng-show="tasksIndex.created">
-    <li class="task" ng-repeat="task in tasksIndex.created">
-      <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
-      <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-      <p>Location: {{ task.location }}</p>
-      <p>Reward: £{{ task.price}}</p>
-      <ul>
-        <li ng-repeat="request in task.requestedBy">Requested: {{ request.user.username }}</li>
-      </ul>
-    </li>
-  </div>
-<!-- ======= -->
 <div class="w-100 w-40-ns dib" ng-show="tasksIndex.requested">
   <h3 class="white">Tasks I have requested</h3>
   <li class="task" ng-repeat="task in tasksIndex.requested">
@@ -50,7 +37,6 @@
     <p>Location: {{ task.location }}</p>
     <p>Reward: £{{ task.price}}</p>
   </li>
-<!-- >>>>>>> development -->
 </div>
 
 </section>
