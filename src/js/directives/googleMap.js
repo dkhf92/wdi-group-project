@@ -2,8 +2,8 @@ angular
 .module('thisApp')
 .directive('googleMap', googleMap);
 
-googleMap.$inject = ['$window','$http', '$timeout'];
-function googleMap($window, $http, $timeout){
+googleMap.$inject = ['$window','$http', '$timeout', 'API'];
+function googleMap($window, $http, $timeout, API){
   return{
     restrict: 'E',
     replace: 'true',
@@ -21,7 +21,7 @@ function googleMap($window, $http, $timeout){
         for (var i = 0; i < scope.tasks.length; i++) {
           geocode(scope.tasks[i]);
         }
-      }, 200);
+      }, 300);
 
       function geocode(task){
         $http
@@ -29,10 +29,30 @@ function googleMap($window, $http, $timeout){
         .then(data => {
           var coords = (data.data.results[0].geometry.location);
           console.log(coords);
-          new google.maps.Marker({
+          const marker = new google.maps.Marker({
             position: coords,
             map: map
           });
+          const url = `${window.location.origin}/tasks`;
+          const contentString = '<div class="content ba">'+
+          '<div class="bg-black-70 white">'+
+          `<h1 id="firstHeading" class="f4">${task.name}</h1>`+
+          '</div>'+
+          '<div id="bodyContent">'+
+          `<p>${task.location.streetName}, <span class="ttu">${task.location.postcode}</span></p>`+
+          `<a href="${url}/${task._id}" class="f7">More...</a>`+
+          '</div>'+
+          '</div>';
+
+
+          console.log(API);
+          const infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+
         });
       }
     }
