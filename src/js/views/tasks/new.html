@@ -1,8 +1,11 @@
-<form ng-submit="tasksNew.create()" class="measure center">
+<form ng-submit="tasksNew.create()" class="measure center" name="tasksNew.taskForm">
   <h1>New Task/Job</h1>
   <div class="mt3">
     <label class="db fw6 lh-copy f6" for="name">Name</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksNew.task.name" placeholder="Name">
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksNew.task.name" placeholder="Name" required>
+  </div>
+  <div class="ng-message-error" ng-messages="tasksNew.taskForm.name.$error" ng-show="(tasksNew.taskForm.$submitted || tasksNew.taskForm.username.$touched)">
+    <p ng-message="required">This field is required</p>
   </div>
   <div class="mv3">
     <label class="db fw6 lh-copy f6" for="description">Description</label>
