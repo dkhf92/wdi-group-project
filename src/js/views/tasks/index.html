@@ -6,14 +6,14 @@
         <div class="fl w-1 pa4 bg-white task-inner ma2 shadow-2">
           <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
           <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
-          <p>Location: {{ task.location }}</p>
+          <p>Location: <span class="ttu">{{ task.location.postcode }}<span></p>
           <p>Reward: £{{ task.price}}</p>
           <a class="f6 link dim br2 ba bw2 ph3 pv2 mb2 dib blue" ui-sref="tasksShow({ id: task._id })">Apply</a>
         </div>
       </div>
     </div>
     <div class="w-10"></div>
-    <google-map class="w-100 w-30-ns dib"></google-map>
+    <google-map class="w-100 w-30-ns dib" tasks="tasksIndex.available"></google-map>
 
     <div class="w-100 w-40-ns dib cf" ng-show="tasksIndex.created[0]">
       <h3 class="white">Tasks I have created</h3>
@@ -23,15 +23,16 @@
         <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
         <p>Location: {{ task.location }}</p>
         <p>Reward: £{{ task.price}}</p>
-        <ul>
+        <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
+        <!-- <ul>
           <li ng-repeat="request in task.requestedBy">Requested: {{ request.user.name }}</li>
-        </ul>
+        </ul> -->
       </div>
     </div>
     </div>
   </div>
 
-<div class="w-100 w-40-ns dib" ng-show="tasksIndex.requested">
+<div class="w-100 w-40-ns dib" ng-show="tasksIndex.requested[0]">
   <h3 class="white">Tasks I have requested</h3>
   <li class="task" ng-repeat="task in tasksIndex.requested">
     <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>

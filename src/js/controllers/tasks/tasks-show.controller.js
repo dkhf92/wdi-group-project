@@ -10,8 +10,6 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
 
   vm.task = Task.get($stateParams);
 
-// Trying to store charity and user ID as a request when the user clicks the request button. Problem is that the .populate() in the back-end (in controllers/tasks) is no longer populating (I think) because the model now contains multiple schemas.
-// We are storing the id's correctly, so we can do a get request to find the user and charity info, but it seems like a long-winded solution...
 
   function getCharities() {
     vm.charities = [];
@@ -30,11 +28,13 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
   getCharities();
 
   vm.request = () => {
-    if ((vm.task.requestedBy.find(x => x.user === vm.user._id)) || (vm.task.createdBy === vm.user._id)) {
+    if ((vm.task.requestedBy.find(x => x.user._id === vm.user._id)) || (vm.task.createdBy === vm.user._id)) {
       return console.log('Sorry you can\'t request this job - you either created it, or have already requested it.');
+    } else if (!vm.charity) {
+      return console.log('please select a charity');
     }
-    console.log('clicked');
-    console.log(vm.charity);
+
+    console.log('Selected charity: ', vm.charity);
     vm.task.requestedBy.push({user: vm.user._id, charity: vm.charity});
     Task
       .update({ id: $stateParams.id }, vm.task)

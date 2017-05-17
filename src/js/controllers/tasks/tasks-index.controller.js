@@ -7,6 +7,8 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
   const vm  = this;
   vm.user = CurrentUserService.currentUser;
   vm.delete  = tasksDelete;
+  vm.tasks = Task.query();
+  console.log(vm.tasks);
   function tasksDelete(activity) {
     Task
     .remove({ id: activity._id })
@@ -39,7 +41,18 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     .query()
     .$promise
     .then(tasks => {
-      vm.available = filterFilter(tasks, params);
+      const all = filterFilter(tasks, params);
+      const available = [];
+      all.forEach(task => {
+        if (task.requestedBy.length === 0) {
+          available.push(task);
+        } else {
+          if (task.requestedBy.find(x => x.user._id === vm.user._id)) {
+            console.log('Task already requested by user ', task);
+          } else available.push(task);
+        }
+      });
+      vm.available = available;
     });
   }
 
@@ -62,7 +75,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
       const requested = [];
       tasks.forEach(task => {
         if(task.requestedBy.find(x => x.user._id === vm.user._id)) {
-          console.log('firing');
+          // console.log('firing');
           requested.push(task);
         }
         // console.log(vm.requested);
