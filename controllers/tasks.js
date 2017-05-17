@@ -14,7 +14,7 @@ function taskIndex(req, res, next){
 function taskShow(req, res, next){
   Task
   .findById(req.params.id)
-  .populate(['requestedBy', 'assignedTo'])
+  .populate(['requestedBy.user', 'requestedBy.charity', 'assignedTo'])
   .exec()
   .then(task => {
     if(!task){
