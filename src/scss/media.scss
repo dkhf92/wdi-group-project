@@ -2,3 +2,38 @@
   max-width: 200px;
   max-height: 100px;
 }
+// .charityLogo:hover {
+//   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
+// }
+
+.charityImg {
+  max-width: 200px;
+  max-height: 150px;
+}
+.charity-inner{
+  width: 100%;
+  height: 100%;
+  border: 5px solid #58dcbb;
+  &:hover{
+    background-image:url('http://www.ispi.org/images/volunteer.png');
+    // background-color: rgba(255,255,255,0.7)
+    animation-duration: 800ms;
+    animation-name: fadeIn;
+  }
+}
+// .potato {
+// animation-duration: 800ms;
+// animation-name: abc;
+// }
+//
+//
+// @keyframes abc {
+// 0% {
+// background: red;
+// }
+// 80% {
+// background: green;
+// }
+// 100% {
+// background: blue;
+// }
