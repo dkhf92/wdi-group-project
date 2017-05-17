@@ -14,6 +14,7 @@ $valid-color:   green;
 // }
 
 .ng-message-error p {
+  clear: both;
   border: 1px solid $invalid-color;
   background: lighten($invalid-color, 30%);
   padding: 5px;

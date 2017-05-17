@@ -54,17 +54,28 @@ html, body {
 //     opacity: 1;
 //   }
 // }
-@keyframes spin {
-  0% {
-    -ms-transform: rotate(360deg);
-  }
-  50% {
-    -ms-transform: rotate(180deg)
-  }
-  100% {
-    -ms-transform: rotate(360deg);
-  }
-}
+// @keyframes spin {
+//   0% {
+//     -ms-transform: rotate(360deg);
+//   }
+//   50% {
+//     -ms-transform: rotate(180deg)
+// =======
+//
+//   &:hover{
+//     animation-duration: 800ms;
+//     animation-name: potato;
+//   }
+// }
+// @keyframes potato {
+//   0% {
+//     -ms-transform: rotate(0deg);
+// >>>>>>> development
+//   }
+//   100% {
+//     -ms-transform: rotate(360deg);
+//   }
+// }
 
 a{
   text-decoration: none;
