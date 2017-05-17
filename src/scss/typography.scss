@@ -4,11 +4,66 @@ html, body {
 #logo{
   font-family: 'Baloo', cursive;
   font-size: 30px;
+  &:hover{
+    // -webkit-animation-name: spin;
+    // -webkit-animation-duration: 4000ms;
+    -webkit-animation:spin 4s linear infinite;
+    animation-duration: 800ms;
+    animation-name: spin;
+    // -webkit-animation: spin 5s infinite;
+  }
 }
 .logo{
   font-family: 'Baloo', cursive;
-
   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+  &:hover{
+    // -webkit-animation-name: spin;
+    // -webkit-animation-duration: 4000ms;
+    -webkit-animation:spin 4s linear infinite;
+    animation-duration: 800ms;
+    animation-name: spin;
+    // -webkit-animation: spin 5s infinite;
+  }
+}
+@keyframes spin {
+  0% {
+    -moz-transform: rotate(360deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+// @-ms-keyframes spin {
+//        from {
+//            -ms-transform: rotate(0deg);
+//        }
+//        to {
+//            -ms-transform: rotate(360deg);
+//        }
+// @keyframes fadeIn {
+//   0% {
+//     opacity: 0;
+//   }
+//   80% {
+//     opacity: 0.5;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
+@keyframes spin {
+  0% {
+    -ms-transform: rotate(360deg);
+  }
+  50% {
+    -ms-transform: rotate(180deg)
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
 }
 
 a{
