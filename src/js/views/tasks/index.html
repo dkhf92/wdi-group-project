@@ -21,9 +21,10 @@
         <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
         <p>Location: {{ task.location }}</p>
         <p>Reward: £{{ task.price}}</p>
-        <ul>
+        <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
+        <!-- <ul>
           <li ng-repeat="request in task.requestedBy">Requested: {{ request.user.name }}</li>
-        </ul>
+        </ul> -->
       </div>
     </div>
     </div>
