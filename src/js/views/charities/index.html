@@ -4,10 +4,10 @@
     <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="charity" ng-model="charities.charity" placeholder="Search charities...">
   </div>
   <div class="mv3">
-    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search">
+    <input class="mb5 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search">
   </div>
 </form>
 <div ng-repeat="charity in charities.charities" class="measure center">
-  <a ui-sref="charityShow({ id: {{charity.charityId }} })"><p class="ph3 pv2 input-reset bg-transparent grow pointer">{{ charity.charityDisplayName }}</p>
-  <img src="{{ charity.logoUrl }}" alt=""></a>
+  <a ui-sref="charityShow({ id: {{charity.charityId }} })"><p class="f4 pointer bg-transparent grow pointer f3 dib">{{ charity.charityDisplayName }}</p>
+  <img src="{{ charity.logoUrl }}" alt="Charity-Logo" style="margin:auto;" class="charityLogo"></a>
 </div>
