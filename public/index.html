@@ -15,6 +15,9 @@
   <!-- endinject -->
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDn5tZtcy_dDbvfRjJPT4hLRfRZMCxRDQ">
+    </script>
 </head>
 <body ng-controller="MainCtrl as main">
   <header class="sans-serif head">
@@ -35,7 +38,10 @@
       </div>
     </nav>
   </header>
-  <main ui-view  style="clear: both">
+
+
+  <main ui-view  style="">
+
   </main>
   <!-- The Modal -->
   <div id="myModal" class="modal">
