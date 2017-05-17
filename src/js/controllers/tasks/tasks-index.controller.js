@@ -45,13 +45,9 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
         if (task.requestedBy.length === 0) {
           available.push(task);
         } else {
-          for (var i = 0; i < task.requestedBy.length; i++) {
-            if (task.requestedBy[i].user._id === vm.user._id) {
-              console.log('requested by current user: ', task);
-            } else {
-              available.push(task);
-            }
-          }
+          if (task.requestedBy.find(x => x.user._id === vm.user._id)) {
+            console.log('Task already requested by user ', task);
+          } else available.push(task);
         }
       });
       vm.available = available;
