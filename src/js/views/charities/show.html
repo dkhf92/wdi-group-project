@@ -1,8 +1,10 @@
 <h1>{{ charity.charity.name }}</h1>
 
-<img src="{{ charity.charity.logoAbsoluteUrl }}" alt="">
+<img src="{{ charity.charity.logoAbsoluteUrl }}" alt="Charity-Logo" class="charityImg">
 
 <p>{{ charity.charity.description }}</p>
-<a href="{{charity.charity.profilePageUrl}}">Take a look at their JustGiving profile</a>
-<a href="{{charity.charity.websiteUrl}}">Or their own website</a>
-<button ng-click="charity.saveCharity(charity.charity)" type="button" name="button">Favourite this charity</button>
+<div class="potato item animated bounceInRight">
+<a href="{{charity.charity.profilePageUrl}}" class="ma2 f5 grow pointer f6 dib">Take a look at their JustGiving profile</a>
+<a href="{{charity.charity.websiteUrl}}" class="ma2 f5 grow pointer f6 dib">Or their own website</a>
+<button ng-click="charity.saveCharity(charity.charity)" type="button" name="button" class="mb5 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma2">Favourite this charity</button>
+</div>
