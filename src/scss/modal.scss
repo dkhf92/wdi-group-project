@@ -12,7 +12,6 @@
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-
 /* Modal Content */
 .modal-content {
   background-color: $orange;
@@ -22,7 +21,6 @@
   width: 75%;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
 }
-
 /* The Close Button */
 .close {
   color: #143642;
@@ -30,7 +28,6 @@
   font-size: 28px;
   font-weight: bold;
 }
-
 .close:hover,
 .close:focus {
   color: #000;
