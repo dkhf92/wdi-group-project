@@ -9,6 +9,19 @@ html, body {
   font-family: 'Baloo', cursive;
 
   text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+
+  &:hover{
+    animation-duration: 800ms;
+    animation-name: potato;
+  }
+}
+@keyframes potato {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
 }
 
 a{
