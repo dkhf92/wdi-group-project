@@ -30,9 +30,11 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
   vm.request = () => {
     if ((vm.task.requestedBy.find(x => x.user._id === vm.user._id)) || (vm.task.createdBy === vm.user._id)) {
       return console.log('Sorry you can\'t request this job - you either created it, or have already requested it.');
+    } else if (!vm.charity) {
+      return console.log('please select a charity');
     }
-    console.log('clicked');
-    console.log(vm.charity);
+
+    console.log('Selected charity: ', vm.charity);
     vm.task.requestedBy.push({user: vm.user._id, charity: vm.charity});
     Task
       .update({ id: $stateParams.id }, vm.task)
