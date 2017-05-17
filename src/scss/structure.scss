@@ -1,9 +1,12 @@
 body{
-  background-image:url('https://www.xmple.com/wallpaper/blue-linear-gradient-green-2160x3840-c2-00bfff-90ee90-a-60-f-14.svg');
-  background-size: cover;
+  // background-image:url('http://www.ilikewallpaper.net/iphone-6-wallpapers/download/26907/Pure-Clear-Shiny-Color-Gradation-Cube-Pattern-iPhone-6-plus-wallpaper-ilikewallpaper_com.jpg');
+  // background-size: cover;
+  background: $lightGrey;
+
 }
 main{
   text-align: center;
+
 }
 .content{
   width: 80%;
