@@ -34,12 +34,22 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
 
 
   function availableTasks() {
-    const params = { createdBy: '!' + vm.user._id };
+    // const params = { createdBy: '!' + vm.user._id };
     Task
     .query()
     .$promise
     .then(tasks => {
-      vm.available = filterFilter(tasks, params);
+      // const all = filterFilter(tasks, params);
+      const available = [];
+      tasks.forEach(task => {
+        if((task.requestedBy.find(x => x.user._id !== vm.user._id)) && (task.createdBy !== vm.user._id)) {
+          console.log('firing on available', task);
+          available.push(task);
+        }
+        // console.log(vm.requested);
+      });
+      vm.available = available;
+      // vm.available = filterFilter(tasks, params);
     });
   }
 
