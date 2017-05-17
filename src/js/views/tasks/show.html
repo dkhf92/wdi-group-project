@@ -7,7 +7,7 @@
 <p>Donation to be made: £{{ tasksShow.task.price}}</p>
 <p>Requested by these users:</p>
 <ul>
-  <li ng-repeat="request in tasksShow.task.requestedBy"><p>{{ request }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user)" type="button" name="button">Assign</button></p></li>
+  <li ng-repeat="request in tasksShow.task.requestedBy"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user)" type="button" name="button">Assign</button></p></li>
 </ul>
 <p>Assigned to:</p>
 <ul>
@@ -15,7 +15,6 @@
 </ul>
 
 
-{{ tasksShow.charity }}
   <select ng-model="tasksShow.charity" class="" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>

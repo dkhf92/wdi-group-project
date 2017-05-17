@@ -7,7 +7,6 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
   const vm  = this;
   vm.user = CurrentUserService.currentUser;
   vm.delete  = tasksDelete;
-
   function tasksDelete(activity) {
     Task
     .remove({ id: activity._id })
