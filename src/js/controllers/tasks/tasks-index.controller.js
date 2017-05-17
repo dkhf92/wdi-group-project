@@ -39,7 +39,22 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     .query()
     .$promise
     .then(tasks => {
-      vm.available = filterFilter(tasks, params);
+      const all = filterFilter(tasks, params);
+      const available = [];
+      all.forEach(task => {
+        if (task.requestedBy.length === 0) {
+          available.push(task);
+        } else {
+          for (var i = 0; i < task.requestedBy.length; i++) {
+            if (task.requestedBy[i].user._id === vm.user._id) {
+              console.log('requested by current user: ', task);
+            } else {
+              available.push(task);
+            }
+          }
+        }
+      });
+      vm.available = available;
     });
   }
 
@@ -62,7 +77,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
       const requested = [];
       tasks.forEach(task => {
         if(task.requestedBy.find(x => x.user._id === vm.user._id)) {
-          console.log('firing');
+          // console.log('firing');
           requested.push(task);
         }
         // console.log(vm.requested);
