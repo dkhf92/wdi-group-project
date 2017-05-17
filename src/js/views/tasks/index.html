@@ -2,7 +2,9 @@
   <h3 class="b tl white measure">Hey <span class="ttc">{{main.user.username}}</span>, wanna do something good today? Here's a list of tasks to choose from:</h3>
   <div class="row">
     <div class="w-100 w-60-ns">
-      <div class="task fl w-100 w-50-ns pa1" ng-repeat="task in tasksIndex.available">
+
+      <div class="task fl w-100 w-50-ns pa3" ng-repeat="task in tasksIndex.available">
+
         <div class="fl w-1 pa4 bg-white task-inner ma2 shadow-2">
           <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
           <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
@@ -13,8 +15,9 @@
       </div>
     </div>
     <div class="w-10"></div>
-    <google-map class="w-100 w-30-ns dib" tasks="tasksIndex.available"></google-map>
-
+    <div class="pa3">
+      <google-map class="w-100 w-30-ns dib ma2 shadow-2" tasks="tasksIndex.available"></google-map>
+    </div>
     <div class="w-100 w-40-ns dib cf" ng-show="tasksIndex.created[0]">
       <h3 class="white">Tasks I have created</h3>
       <div class="mh4" ng-repeat="task in tasksIndex.created">
