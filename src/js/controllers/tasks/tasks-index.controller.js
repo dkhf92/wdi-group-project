@@ -8,7 +8,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
   vm.user = CurrentUserService.currentUser;
   vm.delete  = tasksDelete;
   vm.tasks = Task.query();
-  console.log(vm.tasks);
+
   function tasksDelete(activity) {
     Task
     .remove({ id: activity._id })
