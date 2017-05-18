@@ -14,16 +14,24 @@
 }
 /* Modal Content */
 .modal-content {
-  background-color: $orange;
-  margin: auto;
-  padding: 20px;
+  background: $gold; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(top, $lightBlue , $lightGrey); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom, $lightBlue, $lightGrey); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom, $lightBlue, $lightGrey); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, $lightBlue , $lightGrey); /* Standard syntax */
+  margin: 30px auto;
+  padding: 60px;
+  // opacity: 0.9;
+  border-radius: 10px;
   border: 1px solid #888;
-  width: 75%;
+  width: 70%;
+  height: 100%;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
+  // border: 5px solid $cherry;
 }
 /* The Close Button */
 .close {
-  color: #143642;
+  color: $cherry;
   float: right;
   font-size: 28px;
   font-weight: bold;

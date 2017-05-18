@@ -1,6 +1,6 @@
 <!-- <h1>Update this Task!</h1>
 
-<form ng-submit="tasksEdit.update()">
+<form ng-submit="tasksEdit.update()" name="tasksEdit.editForm" novalidate>
   <div class="form-group">
     <label for="name">Name</label>
     <input class="form-control" type="text" name="name" id="name" ng-model="tasksEdit.task.name">
@@ -10,8 +10,16 @@
     <input class="form-control" type="text" name="description" id="description" ng-model="tasksEdit.task.description">
   </div>
   <div class="form-group">
-    <label for="location">Location</label>
-    <input class="form-control" type="text" name="location" id="location" ng-model="tasksEdit.task.location">
+    <label for="postcode">Postcode</label>
+    <input class="form-control" type="text" name="postcode" id="postcode" ng-model="tasksEdit.task.location.postcode" ng-pattern="tasksEdit.postcodeValidate" required>
+  </div>
+  <div class="ng-message-error" ng-messages="tasksEdit.editForm.postcode.$error" ng-show="(tasksEdit.editForm.$submitted || tasksEdit.editForm.postcode.$touched)">
+    <p ng-message="required">This field is required</p>
+    <p ng-message="pattern">Please enter a valid postcode</p>
+  </div>
+  <div class="form-group">
+    <label for="streetName">Street</label>
+    <input class="form-control" type="text" name="streetName" id="streetName" ng-model="tasksEdit.task.location.streetName">
   </div>
   <div class="form-group">
     <label for="date">Date</label>
@@ -25,9 +33,9 @@
 </form>
 
 <! ui-sref="" redirect if user clicks cancel? -->
-<!-- ng-model --> -->
+<!-- ng-model -->
 
-<form ng-submit="tasksEdit.update()" class="measure center">
+<form ng-submit="tasksEdit.update()" class="measure center" name="tasksEdit.editForm" novalidate>
   <h1>Edit current Task</h1>
   <div class="mt3">
     <label class="db fw6 lh-copy f6" for="name">Name</label>
@@ -37,9 +45,17 @@
     <label class="db fw6 lh-copy f6" for="description">Description</label>
     <textarea id="description" name="description" ng-model="tasksEdit.task.description" class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" placeholder="Write description of task here"></textarea>
   </div>
-  <div class="mv3">
-    <label class="db fw6 lh-copy f6" for="location">Location</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="location" ng-model="tasksEdit.task.location" placeholder="e.g The Relay Building, 114 Whitechapel">
+  <div class="fl w-30 pa1">
+    <label class="db fw6 lh-copy f6" for="location.postcode">Postcode</label>
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="postcode" id="location.postcode" ng-model="tasksEdit.task.location.postcode" ng-pattern="tasksEdit.postcodeValidate" required>
+  </div>
+  <div class="fl w-70 pa1">
+    <label class="db fw6 lh-copy f6" for="location.streetName">Street Name</label>
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="streetName" id="location.streetName" ng-model="tasksEdit.task.location.streetName">
+  </div>
+  <div class="ng-message-error" ng-messages="tasksEdit.editForm.postcode.$error" ng-show="(tasksEdit.editForm.$submitted || tasksEdit.editForm.postcode.$touched)">
+    <p ng-message="required">This field is required</p>
+    <p ng-message="pattern">Please enter a valid postcode</p>
   </div>
   <div class="mv3">
     <label class="db fw6 lh-copy f6" for="date">Date</label>
@@ -50,6 +66,6 @@
     <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="price" id="price" ng-model="tasksEdit.task.price" placeholder="e.g. 19.99$">
   </div>
   <div class="mv3">
-    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add Task">
+    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Update Task">
   </div>
 </form>
