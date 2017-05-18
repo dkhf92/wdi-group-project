@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   <link rel="stylesheet" href="/css/animate.css">
-  <title>THISAPP</title>
+  <title>FeelGood</title>
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
@@ -26,13 +26,11 @@
         </a>
       </div>
       <div class="dtc v-mid tr pa2">
+        <a class="ba fw6 f6 no-underline black-70 dn dib-l pv2 ph3 ttc" ui-sref="tasksIndex" ng-show="main.user">Your dashboard</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3 nav-link pointer" ui-sref="/" id="myBtn" >How it Works</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="charity" ng-show="main.user">Charities</a>
-        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="tasksIndex" ng-show="main.user">Tasks</a>
-        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="tasksNew" ng-show="main.user">Create Task</a>
-        <!-- <a class="f6 fw4 hover-ba no-underline black-70 dib ml2 pv2 ph3 ba nav-link pointer"  ui-sref="register" ng-hide="main.user">Sign up</a> -->
+
         <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3 pointer nav-link pointer">Logout</a>
-        <a class="ba fw6 no-underline black-70 dn dib-l pv2 ph3 ttc" ui-sref="tasksIndex" ng-show="main.user">{{ main.user.username }}</a>
       </div>
     </nav>
   </header>

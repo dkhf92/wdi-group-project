@@ -28,7 +28,6 @@ function googleMap($window, $http, $timeout, API){
         .get(`http://maps.googleapis.com/maps/api/geocode/json?&address=${task.location.postcode}`)
         .then(data => {
           var coords = (data.data.results[0].geometry.location);
-          console.log(coords);
           const marker = new google.maps.Marker({
             position: coords,
             map: map
@@ -44,8 +43,6 @@ function googleMap($window, $http, $timeout, API){
           '</div>'+
           '</div>';
 
-
-          console.log(API);
           const infowindow = new google.maps.InfoWindow({
             content: contentString
           });
