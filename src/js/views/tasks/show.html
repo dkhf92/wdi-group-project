@@ -27,7 +27,9 @@
 </div>
 
 <div class="" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
-  <p>This task has been requested by {{ tasksShow.task.requestedBy.length }} user<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
+  <p ngif="tasksShow.task.requestedBy[0]">This task has {{ tasksShow.task.requestedBy.length }} outstanding request<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
+  <p ngif="tasksShow.task.assignedTo[0]">This task has {{ tasksShow.task.assignedTo.length }} user<span ng-if="tasksShow.task.assignedTo.length !== 1">s</span> assigned to it</p>
+
   <select ng-model="tasksShow.charity" class="ma4" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
@@ -36,3 +38,14 @@
 </div>
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
+
+<button type="button" ng-click="tasksShow.showModal()" name="button">Show modal</button>
+<div id="requestModal" name="requestModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" ng-click="tasksShow.closeModal()">&times;</span>
+
+    <p class="measure">Thanks for requesting this task. We'll be in touch if the task creator accepts your request!</p>
+
+  </div>
+</div>
