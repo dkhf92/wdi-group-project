@@ -1,5 +1,3 @@
-$invalid-color: #EB1D3A;
-$valid-color:   green;
 
 // form.ng-dirty {
 //   input {
@@ -14,6 +12,7 @@ $valid-color:   green;
 // }
 
 .ng-message-error p {
+  clear: both;
   border: 1px solid $invalid-color;
   background: lighten($invalid-color, 30%);
   padding: 5px;

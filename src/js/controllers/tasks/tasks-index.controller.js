@@ -7,6 +7,8 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
   const vm  = this;
   vm.user = CurrentUserService.currentUser;
   vm.delete  = tasksDelete;
+  vm.tasks = Task.query();
+
   function tasksDelete(activity) {
     Task
     .remove({ id: activity._id })
@@ -31,7 +33,9 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     availableTasks();
     requestedTasks();
   }
-
+  $rootScope.$on('taskCreated', () => {
+    filterTasks();
+  });
 
   function availableTasks() {
     const params = { createdBy: '!' + vm.user._id };

@@ -1,0 +1,40 @@
+
+<h1>edit profile here</h1>
+<form ng-submit="usersEdit.update()" class="measure center" name="usersEdit.editform" novalidate>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="username">Username</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="username"  ng-model="usersEdit.user.username" placeholder="Username">
+  </div>
+  <div class="ng-message-error" ng-messages="usersEdit.editForm.username.$error" >
+    <p ng-message="required">This field is required</p>
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="firstName">First Name</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="firstName" ng-model="usersEdit.user.firstName" placeholder="e.g. John">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="lastName">Last Name</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="lastName" ng-model="usersEdit.user.lastName" placeholder="e.g. Doe">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="Image">Image</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="image" ng-model="usersEdit.user.image" placeholder="Paste Image address here">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="email">Email</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="email" name="email" ng-model="usersEdit.user.email" placeholder="e.g. john@email.com" required>
+  </div>
+
+  <!-- <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="password">Password</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="password" ng-model="usersEdit.user.password" placeholder="Must be 6 characters long" required minlength="6">
+  </div>
+
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="passwordConfirmation">Password Confirmation</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="password" name="passwordConfirmation" ng-model="usersEdit.user.passwordConfirmation" placeholder="Password confirmation" required ng-pattern="usersEdit.user.password">
+  </div> -->
+
+  <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Edit">
+
+</form>

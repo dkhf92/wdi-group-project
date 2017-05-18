@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
   <link rel="stylesheet" href="/css/animate.css">
-  <title>THISAPP</title>
+  <title>FeelGood</title>
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
   <!-- endinject -->
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-  <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oxygen|Quicksand|Baloo" rel="stylesheet">
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDn5tZtcy_dDbvfRjJPT4hLRfRZMCxRDQ">
+    </script>
 </head>
 <body ng-controller="MainCtrl as main">
   <header class="sans-serif head">
@@ -25,24 +28,29 @@
       <div class="dtc v-mid tr pa2">
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3 nav-link pointer" ui-sref="/" id="myBtn" >How it Works</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="charity" ng-show="main.user">Charities</a>
-        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="tasksIndex" ng-show="main.user">Tasks</a>
-        <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="tasksNew" ng-show="main.user">Create Task</a>
-        <a class="f6 fw4 hover-ba no-underline black-70 dib ml2 pv2 ph3 ba nav-link pointer"  ui-sref="register" ng-hide="main.user">Sign up</a>
+        
         <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3 pointer nav-link pointer">Logout</a>
-        <p class="ba fw6 no-underline black-70 dn dib-l pv2 ph3 ttc" ng-show="main.user">{{ main.user.username }}</p>
+        <a class="ba fw6 f6 no-underline black-70 dn dib-l pv2 ph3 ttc" ui-sref="tasksIndex" ng-show="main.user">Your dashboard</a>
       </div>
     </nav>
   </header>
-  <main ui-view  style="clear: both">
+
+
+  <main ui-view  style="">
+
   </main>
   <!-- The Modal -->
   <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Hi, welcome to FeelGood&copy! Here you can donate to your favourite charity by doing tasks that are needed by others.
-        <strong>Don't feel like joining a charity that takes up to much of your time?</strong> Do you want to make a positive charitable contribution but perhaps lack the time to commit long term to your charity.  Well, we at FeelGood&copy believe we have just the solution. Find jobs posted by other users who pledge to give an amount to a charity of your choice on job completion. Or post a job yourself that you need doing and set an amount to pledge. Simple, right?
-        Feel free to register and log in to explore our website! and all the wondrous possibilities to make a difference!</p>
+
+      <p class="measure">Hi, welcome to <strong class="logo white f3">FeelGood</strong>!</p>
+      <p class="measure">Here you can donate to your favourite charity by doing tasks that are needed by others.</p>
+        <p class="measure"><strong>Don't feel like joining a charity that takes up to much of your time?</strong> Do you want to make a positive charitable contribution but perhaps lack the time to commit long term to your charity?</p>
+        <p class="measure">Well, we at FeelGood&copy believe we have just the solution. Find jobs posted by other users who pledge to give an amount to a charity of your choice on job completion. Or post a job yourself that you need doing and set an amount to pledge. Simple, right?</p>
+        <p class="measure">Feel free to register and log in to explore our website! and all the wondrous possibilities to make a difference!</p>
+
       </div>
     </div>
     <script>

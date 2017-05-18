@@ -7,17 +7,17 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
   $locationProvider.html5Mode(true);
 
   $stateProvider
-  .state('tasksIndex', {
-    url: '/tasks',
-    templateUrl: '/js/views/tasks/index.html',
-    controller: 'TasksIndexCtrl',
-    controllerAs: 'tasksIndex'
-  })
   .state('tasksNew', {
     url: '/tasks/new',
     templateUrl: '/js/views/tasks/new.html',
     controller: 'TasksNewCtrl',
     controllerAs: 'tasksNew'
+  })
+  .state('tasksIndex', {
+    url: '/tasks',
+    templateUrl: '/js/views/tasks/index.html',
+    controller: 'TasksIndexCtrl',
+    controllerAs: 'tasksIndex'
   })
   .state('tasksShow', {
     url: '/tasks/:id',
@@ -42,6 +42,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider){
     templateUrl: '/js/views/users/show.html',
     controller: 'UserShowCtrl',
     controllerAs: 'usersShow'
+  })
+  .state('usersEdit', {
+    url: '/users/:id/edit',
+    templateUrl: '/js/views/users/edit.html',
+    controller: 'UsersEditCtrl',
+    controllerAs: 'usersEdit'
   })
   .state('login', {
     url: '/login',

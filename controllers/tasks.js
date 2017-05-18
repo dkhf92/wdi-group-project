@@ -14,7 +14,7 @@ function taskIndex(req, res, next){
 function taskShow(req, res, next){
   Task
   .findById(req.params.id)
-  .populate(['requestedBy.user', 'requestedBy.charity', 'assignedTo'])
+  .populate(['requestedBy.user', 'requestedBy.charity', 'assignedTo', 'charity'])
   .exec()
   .then(task => {
     if(!task){
@@ -31,7 +31,7 @@ function taskShow(req, res, next){
 function taskCreate(req, res){
   const task = new Task(req.body); //
   task.save(err => {
-    if(err) return res.status(500).json({ message: 'Something has gone wrong!!'});
+    if(err) return res.status(500).json({ message: 'Something has gone wrong!!', error: err});
     return res.status(201).json(task);
   });
 }

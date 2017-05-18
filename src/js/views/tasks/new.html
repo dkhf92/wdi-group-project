@@ -1,26 +1,46 @@
-<form ng-submit="tasksNew.create()" class="measure center">
+<div>
   <h1>New Task/Job</h1>
-  <div class="mt3">
-    <label class="db fw6 lh-copy f6" for="name">Name</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksNew.task.name" placeholder="Name">
-  </div>
-  <div class="mv3">
-    <label class="db fw6 lh-copy f6" for="description">Description</label>
-    <textarea id="description" name="description" ng-model="tasksNew.task.description" class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" placeholder="Write description of task here"></textarea>
-  </div>
-  <div class="mv3">
-    <label class="db fw6 lh-copy f6" for="location">Location</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="location" ng-model="tasksNew.task.location" placeholder="e.g The Relay Building, 114 Whitechapel">
-  </div>
-  <div class="mv3">
-    <label class="db fw6 lh-copy f6" for="date">Date</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="date" ng-model="tasksNew.task.date" placeholder="17/05/2017">
-  </div>
-  <div class="mv3">
-    <label class="db fw6 lh-copy f6" for="price">Price</label>
-    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="price" id="price" ng-model="tasksNew.task.price" placeholder="e.g. 19.99$">
-  </div>
-  <div class="mv3">
-    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add Task">
-  </div>
-</form>
+  <!-- <div class="index-wrap pa3 cf" style="height: 100%; width: 80%;"> -->
+    <form ng-submit="tasksNew.create()" class="measure center" name="tasksNew.taskForm" novalidate>
+
+      <div class="mt3">
+        <label class="db fw6 lh-copy f6" for="name">Name</label>
+        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksNew.task.name" placeholder="Name" required>
+      </div>
+      <div class="ng-message-error" ng-messages="tasksNew.taskForm.name.$error" ng-show="(tasksNew.taskForm.$submitted || tasksNew.taskForm.name.$touched)">
+        <p ng-message="required">This field is required</p>
+      </div>
+      <div class="mv3">
+        <label class="db fw6 lh-copy f6" for="description">Description</label>
+        <textarea id="description" name="description" ng-model="tasksNew.task.description" class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" placeholder="Write description of task here"></textarea>
+      </div>
+      <div class="mv3">
+        <label class="db fw6 lh-copy f6" for="Image">Image</label>
+        <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="image" ng-model="tasksNew.task.image" placeholder="Paste Image address here">
+      </div>
+      <div class="fl w-30 pa1">
+        <label class="db fw6 lh-copy f6" for="location.postcode">Postcode</label>
+        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="postcode" id="location.postcode" ng-model="tasksNew.task.location.postcode" placeholder="e.g SW4 8DU" ng-pattern="tasksNew.postcodeValidate" required>
+      </div>
+      <div class="fl w-70 pa1">
+        <label class="db fw6 lh-copy f6" for="location.streetName">Street Name</label>
+        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="streetName" id="location.streetName" ng-model="tasksNew.task.location.streetName" placeholder="e.g Whitechapel High St.">
+      </div>
+      <div class="ng-message-error" ng-messages="tasksNew.taskForm.postcode.$error" ng-show="(tasksNew.taskForm.$submitted || tasksNew.taskForm.postcode.$touched)">
+        <p ng-message="required">This field is required</p>
+        <p ng-message="pattern">Please enter a valid postcode</p>
+      </div>
+      <div class="mv3">
+        <label class="db fw6 lh-copy f6" for="date">Date</label>
+        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="date" id="date" ng-model="tasksNew.task.date" placeholder="17/05/2017">
+      </div>
+      <div class="mv3">
+        <label class="db fw6 lh-copy f6" for="price">Price</label>
+        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="price" id="price" ng-model="tasksNew.task.price" placeholder="e.g. 19.99$">
+      </div>
+      <div class="mv3">
+        <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add Task">
+      </div>
+    </form>
+  <!-- </div> -->
+</div>
