@@ -44,19 +44,19 @@
 }
 
 // alert messages
-.fade.ng-hide {
+.fadein.ng-hide-remove,
+.fadeout.ng-hide-add {
+  -webkit-transition: 4s ease-in-out all;
+  -moz-transition: 4s ease-in-out all;
+  -o-transition: 4s ease-in-out all;
+  transition: 4s ease-in-out all;
+  display: block !important;
+}
+.fadein.ng-hide-remove,
+.fadeout.ng-hide-add.ng-hide-add-active {
   opacity: 0;
 }
-//
-// .fade.ng-hide-remove,
-// .fade.ng-hide-add {
-//   display: block !important;
-// }
-
-.fade.ng-hide-remove {
-  transition: all linear 1000ms;
+.fadeout.ng-hide-add,
+.fadein.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
 }
-//
-// .fade.ng-hide-add {
-//   transition: all linear 500ms;
-// }

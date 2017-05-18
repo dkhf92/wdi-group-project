@@ -7,6 +7,13 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
   const vm = this;
   vm.user = CurrentUserService.currentUser;
   vm.saveCharity = saveCharity;
+  // vm.fadeOut = fadeOut;
+  // vm.showMessage    = false;
+  //
+  // vm.alert = 0;
+  //
+  // function fadeOut() {
+  // }
 
   function getCharity() {
     $http({
@@ -24,6 +31,13 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
   getCharity();
 
   function saveCharity(charity) {
+    vm.showMessage = true;
+
+    setTimeout(function() {
+      vm.showMessage = false;
+    });
+
+
     Charity
       .query()
       .$promise
