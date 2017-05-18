@@ -10,7 +10,7 @@ function CharitySearchCtrl($http) {
   vm.charitySearch = () => {
     $http({
       method: 'GET',
-      url: `http://api.justgiving.com/7f6218b2/v1/charity/search?q=${vm.charity}`
+      url: `http://api.justgiving.com/7f6218b2/v1/charity/search?q=${vm.charityFind}`
     })
     .then(data => {
       vm.charities = data.data.charitySearchResults;
