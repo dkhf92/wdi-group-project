@@ -1,51 +1,93 @@
-<h1>{{ tasksShow.task.name }}</h1>
+<div class="task fl w-100 w-60-ns pa1">
+  <h1>{{ tasksShow.task.name }}</h1>
 
-<img class="taskImg" ng-src="{{ tasksShow.task.image }}" style="margin:auto;">
-<p>{{ tasksShow.task.description }}</p>
-<p>Location: {{ tasksShow.task.location.streetName }}, {{ tasksShow.task.location.postcode }}</p>
-<p>Date: {{ tasksShow.task.date }}</p>
-<p>Donation to be made: £{{ tasksShow.task.price}}</p>
+  <img class="taskImg" ng-src="{{ tasksShow.task.image }}" style="margin:auto;">
+  <p>{{ tasksShow.task.description }}</p>
+  <p>Location: {{ tasksShow.task.location.streetName }}, {{ tasksShow.task.location.postcode }}</p>
+  <p>Date: {{ tasksShow.task.date }}</p>
+  <p>Donation to be made: £{{ tasksShow.task.price}}</p>
 
-<div class="" ng-if="tasksShow.task.createdBy === tasksShow.user._id">
-  <div class="" ng-if="tasksShow.task.requestedBy[0]">
-    <p>Requested by these users:</p>
-    <ul>
-      <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button><button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.reject(request.user, request.charity, $index)" type="button" name="button">Reject</button></p></li>
-    </ul>
-  </div>
+  <div class="" ng-if="tasksShow.task.createdBy === tasksShow.user._id">
+    <div class="" ng-if="tasksShow.task.requestedBy[0]">
+      <p>Requested by these users:</p>
+      <ul>
+        <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button><button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.reject(request.user, request.charity, $index)" type="button" name="button">Reject</button></p></li>
+      </ul>
+    </div>
     <p ng-if="!tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet had any requests</p>
-  <div class="" ng-if="tasksShow.task.assignedTo[0]">
-    <p>Assigned to:</p>
-    <ul>
-      <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
-    </ul>
-    <p>Charity:</p>
-    <p>{{ tasksShow.task.charity.name }}</p>
+    <div class="" ng-if="tasksShow.task.assignedTo[0]">
+      <p>Assigned to:</p>
+      <ul>
+        <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
+      </ul>
+      <p>Charity:</p>
+      <p>{{ tasksShow.task.charity.name }}</p>
+    </div>
+    <p ng-if="tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet been assigned</p>
+    <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
   </div>
-  <p ng-if="tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet been assigned</p>
-  <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
+
+  <div class="" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
+    <p ngif="tasksShow.task.requestedBy[0]">This task has {{ tasksShow.task.requestedBy.length }} outstanding request<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
+    <p ngif="tasksShow.task.assignedTo[0]">This task has {{ tasksShow.task.assignedTo.length }} user<span ng-if="tasksShow.task.assignedTo.length !== 1">s</span> assigned to it</p>
+
+    <select ng-model="tasksShow.charity" class="ma4" name="charity">
+      <option value="" disabled>Select a charity</option>
+      <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
+    </select><br>
+    <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button>
+  </div>
+
+  <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
+
+  <div id="requestModal" name="requestModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content requestModal">
+      <!-- <span class="close" ng-click="tasksShow.closeModal()">&times;</span> -->
+
+      <p class="" id="modalText">{{ tasksShow.modalText }}</p>
+      <button type="button" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ui-sref="tasksIndex" name="button">Find more tasks</button>
+      <button type="button" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ng-click="tasksShow.closeModal()" name="button">Close</button>
+
+    </div>
+  </div>
 </div>
+<div class="charitySearch fl w-100 w-40-ns pa1" ng-controller="CharitySearchCtrl as charities">
+  <h1>Search Charities</h1>
+  <div class="index-wrap ma4 cf" style="height: 100%">
+    <form ng-submit="charities.charitySearch()" class="measure center">
 
-<div class="" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
-  <p ngif="tasksShow.task.requestedBy[0]">This task has {{ tasksShow.task.requestedBy.length }} outstanding request<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
-  <p ngif="tasksShow.task.assignedTo[0]">This task has {{ tasksShow.task.assignedTo.length }} user<span ng-if="tasksShow.task.assignedTo.length !== 1">s</span> assigned to it</p>
+      <div class="form-group">
+        <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="charity" ng-model="charities.charityFind" placeholder="Search charities...">
+      </div>
+      <div class="mv3">
+        <input class="mb5 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Search">
+      </div>
+    </form>
+    <div class="w-100" style="margin: 0 auto;">
+      <div ng-repeat="charity in charities.charities" class="task fl w-100 pa1">
+        <div class="fl w-2 pa4 bg-white charity-inner ma2 shadow-2 tc">
+          <div class="caption" style="height: 30%;">
+            <p class="pointer bg-transparent grow pointer f3 dib mb5"><a ng-click="charities.showModal(charity.charityId)" class="f4 white">{{ charity.charityDisplayName }}</a></p>
+          </div>
+          <img ng-if="charity.logoUrl" src="{{ charity.logoUrl }}" alt="Charity-Logo"  style="margin:auto;" class="db charityImg">
+          <img ng-if="!charity.logoUrl" src="http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg" style="margin:auto;" class="altImage">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="charityModal" name="charityModal" class="modal" ng-controller="CharityShowCtrl as charity">
+    <!-- Modal content -->
+    <div class="modal-content charityModal">
+      <!-- <span class="close" ng-click="tasksShow.closeModal()">&times;</span> -->
+      <h1>{{ charities.charity.name }}</h1>
+      <img src="{{ charities.charity.logoAbsoluteUrl }}" alt="Charity-Logo" class="charityImg">
+      <p>{{ charities.charity.description }}</p>
+      <a href="{{charities.charity.profilePageUrl}}" class="b f5 ph3 pv2 ba b--black grow pointer f6 dib ma2">Take a look at their JustGiving profile</a>
+      <a href="{{charities.charity.websiteUrl}}" class="b f5 ph3 pv2 ba b--black grow pointer f6 dib ma2">Or their own website</a>
+      <button ng-click="charity.saveCharity(charities.charity); charities.closeModal(); tasksShow.getCharities()" type="button" name="button" class="mb5 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma2">Favourite this charity</button>
+      <button type="button" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ng-click="charities.closeModal()" name="button">Close</button>
 
-  <select ng-model="tasksShow.charity" class="ma4" name="charity">
-    <option value="" disabled>Select a charity</option>
-    <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
-  </select></br>
-  <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
-</div>
-
-<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
-
-<button type="button" ng-click="tasksShow.showModal()" name="button">Show modal</button>
-<div id="requestModal" name="requestModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" ng-click="tasksShow.closeModal()">&times;</span>
-
-    <p class="measure">Thanks for requesting this task. We'll be in touch if the task creator accepts your request!</p>
-
+    </div>
   </div>
 </div>

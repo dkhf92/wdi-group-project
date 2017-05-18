@@ -32,7 +32,6 @@
           </md-content>
         </md-tab>
 
-
         <md-tab label="Tasks requested">
           <md-content class="md-padding">
             <h3 class="ttc white">These are the tasks you have requested:</h3>
@@ -52,6 +51,7 @@
                 </div>
               </div>
             </div>
+
           </md-content>
         </md-tab>
         <md-tab label="Tasks created">
@@ -61,6 +61,7 @@
               <div class="task fl w-100 w-25-ns pa1" ng-repeat="task in tasksIndex.created">
                 <div class="fl w-1 ph2 pv4 bg-white task-inner">
                   <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
 
                   <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
 
