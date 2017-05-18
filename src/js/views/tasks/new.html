@@ -13,6 +13,10 @@
     <label class="db fw6 lh-copy f6" for="description">Description</label>
     <textarea id="description" name="description" ng-model="tasksNew.task.description" class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" placeholder="Write description of task here"></textarea>
   </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="Image">Image</label>
+    <input class="pl pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="image" ng-model="tasksNew.task.image" placeholder="Paste Image address here">
+  </div>
   <div class="fl w-30 pa1">
     <label class="db fw6 lh-copy f6" for="location.postcode">Postcode</label>
     <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="postcode" id="location.postcode" ng-model="tasksNew.task.location.postcode" placeholder="e.g SW4 8DU" ng-pattern="tasksNew.postcodeValidate" required>
