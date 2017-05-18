@@ -2,8 +2,8 @@ angular
 .module('thisApp')
 .controller('TasksShowCtrl', TasksShowCtrl);
 
-TasksShowCtrl.$inject = ['$stateParams', 'Task', 'CurrentUserService', 'Charity'];
-function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
+TasksShowCtrl.$inject = ['$stateParams', 'Task', 'CurrentUserService', 'Charity', '$rootScope'];
+function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity, $rootScope){
   const vm  = this;
 
   vm.user = CurrentUserService.currentUser;
@@ -18,21 +18,25 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
   };
 
 
+  $rootScope.$on('charitySaved', () => {
+    vm.getCharities();
+  });
 
-  function getCharities() {
+  vm.getCharities = () => {
+    if (vm.charities) vm.charities.length = 0;
     vm.charities = [];
     Charity
       .query()
       .$promise
       .then(charities => {
         charities.forEach(charity => {
-          if (charity.favouritedBy.includes(vm.user._id)) {
+          if ((charity.favouritedBy.includes(vm.user._id)) && !(vm.charities.find(x => x._id === charity._id))) {
             vm.charities.push(charity);
           }
         });
       });
-  }
-  getCharities();
+  };
+  vm.getCharities();
 
   vm.request = () => {
     if ((vm.task.requestedBy.find(x => x.user._id === vm.user._id)) || (vm.task.createdBy === vm.user._id)) {
