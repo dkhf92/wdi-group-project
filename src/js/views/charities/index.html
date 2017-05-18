@@ -13,10 +13,10 @@
     <div ng-repeat="charity in charities.charities" class="task fl w-100 w-third-ns pa1">
       <div class="fl w-2 pa4 bg-white charity-inner ma2 shadow-2 tc">
         <div class="caption" style="height: 30%;">
-          <p class="pointer bg-transparent grow pointer f3 dib mb5"><a ui-sref="charityShow({ id: {{charity.charityId }} })" class="f4 white">{{ charity.charityDisplayName }}</a></p>
+          <p class="pointer bg-transparent grow pointer f3 dib mb5"><a ui-sref="charityShow({ id: {{charity.charityId }} })" class="f4 white">{{ charity.charityDisplayName }}</p>
         </div>
         <img ng-if="charity.logoUrl" src="{{ charity.logoUrl }}" alt="Charity-Logo"  style="margin:auto;" class="db charityImg">
-        <img ng-if="!charity.logoUrl" src="http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg" style="margin:auto;" class="altImage">
+        <img ng-if="!charity.logoUrl" src="http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg" style="margin:auto;" class="altImage"></a>
       </div>
     </div>
   </div>
