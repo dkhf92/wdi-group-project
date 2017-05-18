@@ -10,6 +10,13 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
 
   vm.task = Task.get($stateParams);
 
+  vm.canRequest = (array, object) => {
+    console.log('result', array.find(x => x.user._id === object.user._id));
+    if(array.find(x => x.user._id === object.user._id)) return true;
+    return false;
+  };
+
+
 
   function getCharities() {
     vm.charities = [];
@@ -22,7 +29,6 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
             vm.charities.push(charity);
           }
         });
-        console.log(vm.charities);
       });
   }
   getCharities();
@@ -34,7 +40,6 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
       return console.log('please select a charity');
     }
 
-    console.log('Selected charity: ', vm.charity);
     vm.task.requestedBy.push({user: vm.user._id, charity: vm.charity});
     Task
       .update({ id: $stateParams.id }, vm.task)
@@ -44,12 +49,12 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
       });
   };
 
-  vm.assign = (user, $index) => {
-    // if (vm.task.assignedTo.find(x => x._id === user._id)) {
-    //   return console.log('Sorry that user is already assigned to this task.');
-    // }
+  vm.assign = (user, charity, $index) => {
+    if (vm.task.assignedTo.find(x => x._id === user._id)) {
+      return console.log('Sorry that user is already assigned to this task.');
+    }
     vm.task.assignedTo.push(user._id);
-    console.log('Index:', $index);
+    if (!vm.task.charity) vm.task.charity = charity._id;
     vm.task.requestedBy.splice($index, 1);
     Task
       .update({ id: $stateParams.id }, vm.task)
