@@ -1,9 +1,9 @@
 angular
-  .module('thisApp')
-  .controller('CharitySearchCtrl', CharitySearchCtrl);
+.module('thisApp')
+.controller('CharitySearchCtrl', CharitySearchCtrl);
 
-CharitySearchCtrl.$inject = ['$http', '$scope', '$stateParams'];
-function CharitySearchCtrl($http, $scope, $stateParams) {
+CharitySearchCtrl.$inject = ['$http'];
+function CharitySearchCtrl($http) {
   const vm = this;
 
 
@@ -17,5 +17,34 @@ function CharitySearchCtrl($http, $scope, $stateParams) {
       console.log(data);
     });
   };
+
+  function getCharity(charity) {
+    $http({
+      method: 'GET',
+      url: `http://api.justgiving.com/7f6218b2/v1/charity/${charity}`
+    })
+    .then(data => {
+      vm.charity = data.data;
+      vm.charity.favouritedBy = [];
+      vm.charity.charityId = data.data.id;
+      console.log(data.data);
+    });
+  }
+
+  vm.showModal = (charity) => {
+    getCharity(charity);
+    vm.charityModal.style.display = 'block';
+  };
+  window.onclick = function(event) {
+    if (event.target == vm.charityModal) {
+      vm.charityModal.style.display = 'none';
+    }
+  };
+
+  vm.closeModal = () => {
+    vm.charityModal.style.display = 'none';
+  };
+
+  vm.charityModal = document.getElementById('charityModal');
 
 }

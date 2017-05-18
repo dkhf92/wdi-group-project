@@ -2,8 +2,8 @@ angular
   .module('thisApp')
   .controller('CharityShowCtrl', CharityShowCtrl);
 
-CharityShowCtrl.$inject = ['$stateParams', 'Charity', 'CurrentUserService', '$http', '$state'];
-function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $state) {
+CharityShowCtrl.$inject = ['$stateParams', 'Charity', 'CurrentUserService', '$http', '$state', '$rootScope'];
+function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $state, $rootScope) {
   const vm = this;
   vm.user = CurrentUserService.currentUser;
   vm.saveCharity = saveCharity;
@@ -16,16 +16,19 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $stat
   // }
 
   function getCharity() {
-    $http({
-      method: 'GET',
-      url: `http://api.justgiving.com/7f6218b2/v1/charity/${$stateParams.id}`
-    })
-    .then(data => {
-      vm.charity = data.data;
-      vm.charity.favouritedBy = [];
-      vm.charity.charityId = data.data.id;
-      console.log(data.data);
-    });
+    if($stateParams.id.length < 8) {
+      $http({
+        method: 'GET',
+        url: `http://api.justgiving.com/7f6218b2/v1/charity/${$stateParams.id}`
+      })
+      .then(data => {
+        vm.charity = data.data;
+        vm.charity.favouritedBy = [];
+        vm.charity.charityId = data.data.id;
+        console.log(data.data);
+      });
+    }
+
   }
 
   getCharity();
@@ -50,7 +53,10 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $stat
               .update({ id: charity._id }, charity)
               .$promise
               .then(() => {
-                $state.go('charity');
+                if($stateParams.id.length < 8) {
+                  $state.go('charity');
+                }
+                $rootScope.$broadcast('charitySaved');
                 console.log('this charity already exists but you favourited it anyway', charity);
               });
           } else {
@@ -64,7 +70,10 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $stat
           .save(charity)
           .$promise
           .then(() => {
-            $state.go('charity');
+            if($stateParams.id.length < 8) {
+              $state.go('charity');
+            }
+            $rootScope.$broadcast('charitySaved');
             console.log('new charity saved and favourited', Charity.query());
           });
         }

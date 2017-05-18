@@ -20,7 +20,7 @@
   background: -moz-linear-gradient(bottom, $lightBlue, $lightGrey); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom, $lightBlue , $lightGrey); /* Standard syntax */
   margin: 30px auto;
-  padding: 60px;
+  padding: 30px 60px 60px 60px;
   // opacity: 0.9;
   border-radius: 10px;
   border: 1px solid #888;
@@ -28,6 +28,9 @@
   height: 100%;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
   // border: 5px solid $cherry;
+}
+.requestModal {
+  height: auto;
 }
 /* The Close Button */
 .close {
