@@ -18,10 +18,10 @@ main{
 }
 .index-wrap{
   background: $gold; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(top, $lightGrey, $lightBlue, $orange); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom,$lightGrey, $lightBlue, $orange); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom,$lightGrey, $lightBlue, $orange); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom, $lightGrey, $lightBlue, $orange); /* Standard syntax */
+  background: -webkit-linear-gradient(top, $lightGrey, $lightBlue); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, $lightGrey, $lightBlue); /* Standard syntax */
   // border-radius: 10px;
   padding: 40px;
   margin: 0 auto;
@@ -153,3 +153,25 @@ form{
 //   animation: bgAnimL 1.0s forwards;
 //   -webkit-animation: bgAnimL 1.0s forwards; /* for less modern browsers */
 // }
+.tabsdemoDynamicHeight md-content {
+  background: $gold; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(top, $lightGrey); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom,$lightGrey); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom,$lightGrey); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, $lightGrey)!important; /* Standard syntax */ }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-wrapper {
+      background: $gold; /* For browsers that do not support gradients */
+      background: -webkit-linear-gradient(top, $lightGrey, $lightBlue); /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to bottom, $lightGrey, $lightBlue)!important; /* Standard syntax */
+       }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
+
+md-content.md-default-theme {
+  background-color: rgba(255,255,255,0) !important;
+}
