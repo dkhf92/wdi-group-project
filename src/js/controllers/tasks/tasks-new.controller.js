@@ -2,8 +2,8 @@ angular
 .module('thisApp')
 .controller('TasksNewCtrl', TasksNewCtrl);
 
-TasksNewCtrl.$inject = ['$state', 'Task', 'CurrentUserService'];
-function TasksNewCtrl($state, Task, CurrentUserService){
+TasksNewCtrl.$inject = ['$state', 'Task', 'CurrentUserService', '$rootScope'];
+function TasksNewCtrl($state, Task, CurrentUserService, $rootScope){
   const vm = this;
   vm.create = taskCreate;
 
@@ -17,6 +17,7 @@ function TasksNewCtrl($state, Task, CurrentUserService){
       .save(vm.task)
       .$promise
       .then(() => {
+        $rootScope.$broadcast('taskCreated');
         $state.go('tasksIndex');
       });
     }

@@ -33,7 +33,9 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     availableTasks();
     requestedTasks();
   }
-
+  $rootScope.$on('taskCreated', () => {
+    filterTasks();
+  });
 
   function availableTasks() {
     const params = { createdBy: '!' + vm.user._id };
