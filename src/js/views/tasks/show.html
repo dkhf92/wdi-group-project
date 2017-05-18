@@ -24,4 +24,4 @@
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
 
-<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
+<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
