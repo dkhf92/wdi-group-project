@@ -61,10 +61,25 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
       .update({ id: $stateParams.id }, vm.task)
       .$promise
       .then(() => {
+        vm.requestModal.style.display = 'block';
         vm.task = Task.get($stateParams);
       });
   };
 
+  vm.showModal = () => {
+    vm.requestModal.style.display = 'block';
+  };
+  window.onclick = function(event) {
+    if (event.target == vm.requestModal) {
+      vm.requestModal.style.display = 'none';
+    }
+  };
+
+  vm.closeModal = () => {
+    vm.requestModal.style.display = 'none';
+  };
+  vm.requestModal = document.getElementById('requestModal');
+  console.log('Modal', vm.requestModal);
   vm.reject = (user, charity, $index) => {
     vm.task.requestedBy.splice($index, 1);
     Task

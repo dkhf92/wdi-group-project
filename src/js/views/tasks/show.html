@@ -38,3 +38,14 @@
 </div>
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
+
+<button type="button" ng-click="tasksShow.showModal()" name="button">Show modal</button>
+<div id="requestModal" name="requestModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" ng-click="tasksShow.closeModal()">&times;</span>
+
+    <p class="measure">Thanks for requesting this task. We'll be in touch if the task creator accepts your request!</p>
+
+  </div>
+</div>
