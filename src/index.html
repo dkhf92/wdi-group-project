@@ -28,15 +28,15 @@
       <div class="dtc v-mid tr pa2">
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-ns pv2 ph3 nav-link pointer" ui-sref="/" id="myBtn" >How it Works</a>
         <a class="f6 fw4 hover-navy no-underline black-70 dn dib-l pv2 ph3 nav-link pointer" ui-sref="charity" ng-show="main.user">Charities</a>
-        
+
         <a ng-click="main.logout()" ng-show="main.user" class="f6 fw4 hover-navy no-underline black-70 dib ml2 pv2 ph3 pointer nav-link pointer">Logout</a>
-        <a class="ba fw6 f6 no-underline black-70 dn dib-l pv2 ph3 ttc" ui-sref="tasksIndex" ng-show="main.user">Your dashboard</a>
+        <a class="ba fw6 f6 no-underline black-70 dn dib-l pv2 ph3 apply-btn ttc" ui-sref="tasksIndex" ng-show="main.user">Your dashboard</a>
       </div>
     </nav>
   </header>
 
 
-  <main ui-view  style="">
+  <main ui-view class="pv5">
 
   </main>
   <!-- The Modal -->

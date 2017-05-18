@@ -1,11 +1,13 @@
 <h1>{{ charity.charity.name }}</h1>
+<div class="charity-index-wrap">
 <img src="{{ charity.charity.logoAbsoluteUrl }}" alt="Charity-Logo" class="charityImg">
 <p>{{ charity.charity.description }}</p>
 <a href="{{charity.charity.profilePageUrl}}" class="b f5 ph3 pv2 ba b--black grow pointer f6 dib ma2">Take a look at their JustGiving profile</a>
 <a href="{{charity.charity.websiteUrl}}" class="b f5 ph3 pv2 ba b--black grow pointer f6 dib ma2">Or their own website</a>
-<button ng-click="charity.saveCharity(charity.charity); charity.alert = 1" type="button" name="button" class="mb5 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma2 potato = 1">Favourite this charity</button>
+<button ng-click="charity.saveCharity(charity.charity); charity.alert = 1" type="button" name="button" class="mb5 b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma2 ">Favourite this charity</button>
 <div class="block-border fade" ng-show="charity.alert > 0">
   <p ng-show="charity.showMessage" class="w-100 ba br2 pa3 ma2 green bg-washed-green fadein fadeout" role="alert">
     <strong>Charity added to Favourites!</strong>
   </p>
+</div>
 </div>
