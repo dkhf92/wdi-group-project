@@ -11,6 +11,7 @@ const taskSchema = new mongoose.Schema({
   price: { type: Number, required: true},
   image: { type: String },
   requestedBy: [{ user: { type: mongoose.Schema.ObjectId, ref: 'User' }, charity: { type: mongoose.Schema.ObjectId, ref: 'Charity' }}],
+  charity: { type: mongoose.Schema.ObjectId, ref: 'Charity' },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' },
   assignedTo: [{ type: mongoose.Schema.ObjectId, ref: 'User' }]
 },{

@@ -2,29 +2,37 @@
 
 <img class="taskImg" ng-src="{{ tasksShow.task.image }}" style="margin:auto;">
 <p>{{ tasksShow.task.description }}</p>
-<p>Location: {{ tasksShow.task.location }}</p>
+<p>Location: {{ tasksShow.task.location.streetName }}, {{ tasksShow.task.location.postcode }}</p>
 <p>Date: {{ tasksShow.task.date }}</p>
 <p>Donation to be made: £{{ tasksShow.task.price}}</p>
-<p>Requested by these users:</p>
-<ul>
-  <li ng-repeat="request in tasksShow.task.requestedBy"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user)" type="button" name="button">Assign</button></p></li>
-</ul>
-<p>Assigned to:</p>
-<ul>
-  <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
-</ul>
 
-<div class="taskRequest" ng-show="tasksShow.task.createdBy !== tasksShow.user._id">
+<div class="" ng-if="tasksShow.task.createdBy === tasksShow.user._id">
+  <div class="" ng-if="tasksShow.task.requestedBy[0]">
+    <p>Requested by these users:</p>
+    <ul>
+      <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button></p></li>
+    </ul>
+  </div>
+    <p ng-if="!tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet had any requests</p>
+  <div class="" ng-if="tasksShow.task.assignedTo[0]">
+    <p>Assigned to:</p>
+    <ul>
+      <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
+    </ul>
+    <p>Charity:</p>
+    <p>{{ tasksShow.task.charity.name }}</p>
+  </div>
+  <p ng-if="tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet been assigned</p>
+  <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
+</div>
+
+<div class="" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
+  <p>This task has been requested by {{ tasksShow.task.requestedBy.length }} user<span ng-if="tasksShow.task.requestedBy.length > 1">s</span></p>
   <select ng-model="tasksShow.charity" class="ma4" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
-
-  </select><br>
-<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button><br>
-
-
+  </select></br>
+  <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
+</div>
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
-
-<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
-</div>

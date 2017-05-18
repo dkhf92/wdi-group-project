@@ -72,30 +72,39 @@
       <google-map class="w-100 w-30-ns dib ma2 cf" tasks="tasksIndex.available"></google-map>
 
     </div>
+
     <div class="w-100 w-40-ns dib" ng-show="tasksIndex.created[0]">
       <h3 class="white">Tasks I have created</h3>
-      <div class="mh4 pa3" ng-repeat="task in tasksIndex.created">
+      <div class="task mh4 pa3" ng-repeat="task in tasksIndex.created">
         <div class="pa4 bg-white task-inner shadow-2 ma2 cf">
           <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
 
+          <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+
           <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
           <p>Reward: £{{ task.price}}</p>
+          <div class="caption">
+            <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+          </div>
           <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
 
       </div>
     </div>
   </div>
 
-
-
 <div class="w-100 w-40-ns dib" ng-show="tasksIndex.requested[0]">
   <h3 class="white">Tasks I have requested</h3>
   <div class="task mh4 pa3" ng-repeat="task in tasksIndex.requested">
-    <div class="pa4 bg-white task-inner shadow-2 ma2" style="height: 80%;">
+    <div class="pa4 bg-white task-inner shadow-2 ma2">
       <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
+      <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
 
       <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
       <p>Reward: £{{ task.price}}</p>
+      <div class="caption">
+        <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+      </div>
     </div>
   </div>
 </div>
