@@ -10,7 +10,7 @@
   <div class="" ng-if="tasksShow.task.requestedBy[0]">
     <p>Requested by these users:</p>
     <ul>
-      <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button></p></li>
+      <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button><button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.reject(request.user, request.charity, $index)" type="button" name="button">Reject</button></p></li>
     </ul>
   </div>
     <p ng-if="!tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet had any requests</p>
@@ -27,7 +27,7 @@
 </div>
 
 <div class="" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
-  <p>This task has been requested by {{ tasksShow.task.requestedBy.length }} user<span ng-if="tasksShow.task.requestedBy.length > 1">s</span></p>
+  <p>This task has been requested by {{ tasksShow.task.requestedBy.length }} user<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
   <select ng-model="tasksShow.charity" class="ma4" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>

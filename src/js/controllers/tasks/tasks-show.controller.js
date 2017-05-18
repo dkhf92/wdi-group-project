@@ -11,8 +11,9 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
   vm.task = Task.get($stateParams);
 
   vm.canRequest = (array, object) => {
-    console.log('result', array.find(x => x.user._id === object.user._id));
-    if(array.find(x => x.user._id === object.user._id)) return true;
+    if(array) {
+      if(array.find(x => x.user._id === object.user._id)) return true;
+    }
     return false;
   };
 
@@ -55,6 +56,16 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
     }
     vm.task.assignedTo.push(user._id);
     if (!vm.task.charity) vm.task.charity = charity._id;
+    vm.task.requestedBy.splice($index, 1);
+    Task
+      .update({ id: $stateParams.id }, vm.task)
+      .$promise
+      .then(() => {
+        vm.task = Task.get($stateParams);
+      });
+  };
+
+  vm.reject = (user, charity, $index) => {
     vm.task.requestedBy.splice($index, 1);
     Task
       .update({ id: $stateParams.id }, vm.task)
