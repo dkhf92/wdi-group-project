@@ -1,0 +1,7 @@
+<h1>{{usersShow.user.username}}</h1>
+
+<img class="taskImg" ng-if="usersShow.user.image" ng-src="usersShow.user.image" style="margin:auto;">
+<p>{{ usersShow.user.firstName }}</p>
+<p>{{ usersShow.user.lastName }}</p>
+<p>{{ usersShow.user.email }}</p>
+<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button" ui-sref="usersEdit({ id: usersShow.user._id })">Edit Profile details</button>
