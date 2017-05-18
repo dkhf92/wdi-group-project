@@ -78,3 +78,76 @@ form{
     border-width: 1px !important;
   }
 }
+
+
+
+
+.skewed-bg{
+  background: -moz-linear-gradient(top, #207cca -1%, #3c96d2 0%, #207cca 0%, #3ee5ac 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#3ee5ac',GradientType=0 ); /* IE6-9 */
+  padding:  200px 0;
+  transform: skew(0deg, -5deg);
+  margin-top: -250px;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+  .content{
+    transform: skew(0deg, 5deg);
+    text-align: center;
+    .title{
+      padding-top: 100px;
+      font-weight: normal;
+    }
+    .text{
+      width:60%;
+      margin: 25px auto;
+      color: lighten(#00B285, 55);
+    }
+  }
+}
+// .skewed-bgR{
+//   background: -moz-linear-gradient(top, #207cca -1%, #3c96d2 0%, #207cca 0%, #3ee5ac 100%); /* FF3.6-15 */
+//   background: -webkit-linear-gradient(top, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* Chrome10-25,Safari5.1-6 */
+//   background: linear-gradient(to bottom, #207cca -1%,#3c96d2 0%,#207cca 0%,#3ee5ac 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#3ee5ac',GradientType=0 ); /* IE6-9 */
+//   padding:  200px 0;
+//   transform: skew(0deg, -5deg);
+//   margin-top: -250px;
+//   background-size: cover;
+//   height: 100%;
+//   width: 100%;
+//   position: fixed;
+//   z-index: -1;
+// }
+// @keyframes bgAnimR {
+//   0% {
+//     transform: skew(0deg, -5deg);
+//   }
+//   100% {
+//     transform: skew(0deg, 5deg);
+//   }
+// }
+// .skewed-bgR {
+//   /* This section calls the slideInFromLeft animation we defined above */
+//   animation: 1s ease-out bgAnimR;
+//   animation: bgAnimR 1.0s forwards;
+//   -webkit-animation: bgAnimR 1.0s forwards; /* for less modern browsers */
+// }
+// @keyframes bgAnimL {
+//   0% {
+//     transform: skew(0deg, 5deg);
+//   }
+//   100% {
+//     transform: skew(0deg, -5deg);
+//   }
+// }
+// .skewed-bg {
+//   /* This section calls the slideInFromLeft animation we defined above */
+//   animation: 1s ease-out bgAnimL;
+//   animation: bgAnimL 1.0s forwards;
+//   -webkit-animation: bgAnimL 1.0s forwards; /* for less modern browsers */
+// }
