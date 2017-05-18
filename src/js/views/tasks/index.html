@@ -1,113 +1,76 @@
 <section class="content">
+<div ng-cloak class="index-wrap">
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="View tasks">
+        <md-content class="md-padding">
+          <h3 class="tl white f-w-0">Hi {{main.user.username}}, wanna do somthing good today? here a list of tasks available near you:</h3>
+          <div class="task fl w-100 w-third-ns pa1" ng-repeat="task in tasksIndex.available">
+            <div class="fl w-1 ph2 pv4 bg-white task-inner">
+              <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+              <a ui-sref="tasksShow({ id: task._id })"><h1 id="task-name">{{ task.name }}</h1></a>
+              <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+              <p>Reward: £{{ task.price}}</p>
+              <div class="caption">
+                <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">Apply</a>
+              </div>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Show on map">
+        <md-content class="md-padding">
+          <div class="pv4">
+            <google-map class="w-100 dib cf" tasks="tasksIndex.available"></google-map>
+          </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Tasks requested">
+        <md-content class="md-padding">
+          <h3 class="ttc">Hi {{main.user.username}}, these are the tasks you have requested:</h3>
 
-  <div class="ph2 pv4">
-    <p class="tl measure msg f4 animated flipInX">Hey <span class="ttc">{{main.user.username}}</span>, wanna do something good today? <br>Here's a list of tasks to choose from:</p>
-  </div>
-
-  <div ng-cloak class="pa1 index-wrap">
-    <md-content>
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="one">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Tasks</h1>
-            <div class="task fl w-100 w-third-ns pa1" ng-repeat="task in tasksIndex.available">
-              <div class="fl w-1 ph2 pv4 bg-white task-inner ma2">
-
-
-
+          <div class="fl w-100 dib" ng-show="tasksIndex.requested[0]">
+            <div class="task pa3" ng-repeat="task in tasksIndex.requested">
+              <div class="pa4 bg-white task-inner shadow-2 fl w-100 w-third-ns">
+                <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
 
                 <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-                <a ui-sref="tasksShow({ id: task._id })"><h1 id="task-name">{{ task.name }}</h1></a>
+
                 <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
                 <p>Reward: £{{ task.price}}</p>
                 <div class="caption">
-                  <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">Apply</a>
+                  <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
                 </div>
               </div>
             </div>
-          </md-content>
-        </md-tab>
-        <md-tab label="two">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Tab Two</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-          </md-content>
-        </md-tab>
-        <md-tab label="three">
-          <md-content class="md-padding">
-            <h1 class="md-display-2">Tab Three</h1>
-            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-content>
-  </div>
+          </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Tasks created">
+        <md-content class="md-padding">
+          <h3 class="ttc">{{main.user.username}}, these are the tasks you have created:</h3>
+          <div class="w-100 w-40-ns dib" ng-show="tasksIndex.created[0]">
+            <h3 class="white">Tasks I have created</h3>
+            <div class="task mh4 pa3" ng-repeat="task in tasksIndex.created">
+              <div class="pa4 bg-white task-inner shadow-2 ma2 cf">
+                <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
+                <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+
+                <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+                <p>Reward: £{{ task.price}}</p>
+                <div class="caption">
+                  <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+                </div>
+                <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
+
+              </div>
+            </div>
+          </div>
+
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
 </section>
-<!--
-
-  <div class="pa1 index-wrap">
-    <div class="w-100 w-60-ns">
-
-      <div class="task fl w-100 w-50-ns pa1" ng-repeat="task in tasksIndex.available">
-        <div class="fl w-1 ph2 pv4 bg-white task-inner ma2">
-
-
-
-
-          <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-          <a ui-sref="tasksShow({ id: task._id })"><h1 id="task-name">{{ task.name }}</h1></a>
-          <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
-          <p>Reward: £{{ task.price}}</p>
-          <div class="caption">
-            <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">Apply</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-10"></div>
-    <div class="pv4">
-      <google-map class="w-100 w-30-ns dib ma2 cf" tasks="tasksIndex.available"></google-map>
-
-    </div>
-
-    <div class="w-100 w-40-ns dib" ng-show="tasksIndex.created[0]">
-      <h3 class="white">Tasks I have created</h3>
-      <div class="task mh4 pa3" ng-repeat="task in tasksIndex.created">
-        <div class="pa4 bg-white task-inner shadow-2 ma2 cf">
-          <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
-
-          <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-
-          <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
-          <p>Reward: £{{ task.price}}</p>
-          <div class="caption">
-            <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
-          </div>
-          <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
-
-      </div>
-    </div>
-  </div>
-
-<div class="w-100 w-40-ns dib" ng-show="tasksIndex.requested[0]">
-  <h3 class="white">Tasks I have requested</h3>
-  <div class="task mh4 pa3" ng-repeat="task in tasksIndex.requested">
-    <div class="pa4 bg-white task-inner shadow-2 ma2">
-      <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
-
-      <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
-
-      <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
-      <p>Reward: £{{ task.price}}</p>
-      <div class="caption">
-        <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-</section> -->

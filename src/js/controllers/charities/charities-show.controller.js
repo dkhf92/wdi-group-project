@@ -7,6 +7,13 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $stat
   const vm = this;
   vm.user = CurrentUserService.currentUser;
   vm.saveCharity = saveCharity;
+  // vm.fadeOut = fadeOut;
+  // vm.showMessage    = false;
+  //
+  // vm.alert = 0;
+  //
+  // function fadeOut() {
+  // }
 
   function getCharity() {
     $http({
@@ -24,6 +31,12 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $stat
   getCharity();
 
   function saveCharity(charity) {
+    vm.showMessage = true;
+
+    setTimeout(function() {
+      vm.showMessage = false;
+    });
+
 
     Charity
       .query()
@@ -56,7 +69,5 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $stat
           });
         }
       });
-
   }
-
 }
