@@ -14,13 +14,13 @@
   <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
 </ul>
 
-
+<div class="taskRequest" ng-show="tasksShow.task.createdBy !== tasksShow.user._id">
   <select ng-model="tasksShow.charity" class="ma4" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
   </select></br>
-<button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
-
+  <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
+</div>
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
 
