@@ -44,11 +44,13 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
       });
   };
 
-  vm.assign = (user) => {
-    if (vm.task.assignedTo.find(x => x._id === user._id)) {
-      return console.log('Sorry that user is already assigned to this task.');
-    }
+  vm.assign = (user, $index) => {
+    // if (vm.task.assignedTo.find(x => x._id === user._id)) {
+    //   return console.log('Sorry that user is already assigned to this task.');
+    // }
     vm.task.assignedTo.push(user._id);
+    console.log('Index:', $index);
+    vm.task.requestedBy.splice($index, 1);
     Task
       .update({ id: $stateParams.id }, vm.task)
       .$promise
