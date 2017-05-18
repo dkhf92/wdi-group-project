@@ -24,7 +24,6 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
   getCharity();
 
   function saveCharity(charity) {
-
     Charity
       .query()
       .$promise
@@ -54,7 +53,5 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
           });
         }
       });
-
   }
-
 }
