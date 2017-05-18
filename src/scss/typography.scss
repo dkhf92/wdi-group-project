@@ -1,5 +1,5 @@
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 #logo{
   font-family: 'Baloo', cursive;
@@ -13,9 +13,15 @@ html, body {
     // -webkit-animation: spin 5s infinite;
   }
 }
+.msg{
+  color: black;
+}
+.apply-btn {
+  color: $blue;
+}
 .logo{
   font-family: 'Baloo', cursive;
-  text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+  // text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
   &:hover{
     // -webkit-animation-name: spin;
     // -webkit-animation-duration: 4000ms;
@@ -80,7 +86,7 @@ html, body {
 a{
   text-decoration: none;
   font-size: 0.6em;
-  color: black;
+  color: $blue;
   font-weight: normal;
 }
 
