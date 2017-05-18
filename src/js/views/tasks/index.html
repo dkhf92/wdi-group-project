@@ -70,7 +70,8 @@
                   <div class="caption">
                     <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
                   </div>
-                  <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
+                  <p ng-show="task.requestedBy[0]" class="requested">TASK REQUESTED</p>
+                  <p ng-show="task.assignedTo[0]" class="assigned">TASK ASSIGNED</p>
 
                 </div>
               </div>
