@@ -32,6 +32,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     createdTasks();
     availableTasks();
     requestedTasks();
+    assignedTasks();
   }
   $rootScope.$on('taskCreated', () => {
     filterTasks();
@@ -68,9 +69,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     });
   }
 
-
   function requestedTasks() {
-    // const params = { requestedBy: [vm.user._id] };
     Task
     .query()
     .$promise
@@ -78,12 +77,25 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
       const requested = [];
       tasks.forEach(task => {
         if(task.requestedBy.find(x => x.user._id === vm.user._id)) {
-          // console.log('firing');
           requested.push(task);
         }
-        // console.log(vm.requested);
       });
       vm.requested = requested;
+    });
+  }
+
+  function assignedTasks() {
+    Task
+    .query()
+    .$promise
+    .then(tasks => {
+      const assigned = [];
+      tasks.forEach(task => {
+        if(task.assignedTo.find(x => x === vm.user._id)) {
+          assigned.push(task);
+        }
+      });
+      vm.assigned = assigned;
     });
   }
 
