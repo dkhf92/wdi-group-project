@@ -68,6 +68,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     });
   }
 
+
   function requestedTasks() {
     // const params = { requestedBy: [vm.user._id] };
     Task
