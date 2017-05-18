@@ -1,4 +1,4 @@
-<h1>Update a task/job</h1>
+<!-- <h1>Update this Task!</h1>
 
 <form ng-submit="tasksEdit.update()" name="tasksEdit.editForm" novalidate>
   <div class="form-group">
@@ -32,5 +32,32 @@
   <input class="btn" type="submit" value="Update Task"/>
 </form>
 
-<!-- ui-sref="" redirect if user clicks cancel? -->
-<!-- ng-model -->
+<! ui-sref="" redirect if user clicks cancel? -->
+<!-- ng-model --> -->
+
+<form ng-submit="tasksEdit.update()" class="measure center">
+  <h1>Edit current Task</h1>
+  <div class="mt3">
+    <label class="db fw6 lh-copy f6" for="name">Name</label>
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="name" id="name" ng-model="tasksEdit.task.name" placeholder="Name">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="description">Description</label>
+    <textarea id="description" name="description" ng-model="tasksEdit.task.description" class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" placeholder="Write description of task here"></textarea>
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="location">Location</label>
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="location" ng-model="tasksEdit.task.location" placeholder="e.g The Relay Building, 114 Whitechapel">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="date">Date</label>
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="location" id="date" ng-model="tasksEdit.task.date" placeholder="17/05/2017">
+  </div>
+  <div class="mv3">
+    <label class="db fw6 lh-copy f6" for="price">Price</label>
+    <input class="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" type="text" name="price" id="price" ng-model="tasksEdit.task.price" placeholder="e.g. 19.99$">
+  </div>
+  <div class="mv3">
+    <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Add Task">
+  </div>
+</form>
