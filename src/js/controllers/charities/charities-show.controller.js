@@ -2,8 +2,8 @@ angular
   .module('thisApp')
   .controller('CharityShowCtrl', CharityShowCtrl);
 
-CharityShowCtrl.$inject = ['$stateParams', 'Charity', 'CurrentUserService', '$http'];
-function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
+CharityShowCtrl.$inject = ['$stateParams', 'Charity', 'CurrentUserService', '$http', '$state'];
+function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http, $state) {
   const vm = this;
   vm.user = CurrentUserService.currentUser;
   vm.saveCharity = saveCharity;
@@ -37,7 +37,8 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
               .update({ id: charity._id }, charity)
               .$promise
               .then(() => {
-                return console.log('this charity already exists but you favourited it anyway', charity);
+                $state.go('charity');
+                console.log('this charity already exists but you favourited it anyway', charity);
               });
           } else {
             return console.log('You already favourited this charity');
@@ -50,6 +51,7 @@ function CharityShowCtrl($stateParams, Charity, CurrentUserService, $http) {
           .save(charity)
           .$promise
           .then(() => {
+            $state.go('charity');
             console.log('new charity saved and favourited', Charity.query());
           });
         }
