@@ -6,7 +6,7 @@ html, body {
 }
 
 header{
-  background: $lightGrey;
+  background: #ffb464;
 }
 main{
   text-align: center;
@@ -18,10 +18,10 @@ main{
 }
 .index-wrap{
   background: $gold; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(top, $lightGrey, $lightBlue); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom,$lightGrey, $lightBlue); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom, $lightGrey, $lightBlue); /* Standard syntax */
+  background: -webkit-linear-gradient(top, $lightGrey, $lightBlue, $orange); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom,$lightGrey, $lightBlue, $orange); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom,$lightGrey, $lightBlue, $orange); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom, $lightGrey, $lightBlue, $orange); /* Standard syntax */
   // border-radius: 10px;
   padding: 40px;
   margin: 0 auto;
@@ -46,7 +46,7 @@ main{
     animation-name: fadeIn;
     // color: white;
 
-  
+
   }
 }
 
@@ -64,7 +64,7 @@ main{
 
 .caption{
   position: absolute;
-  background-color: $lightGrey;
+  background-color: $orange;
   bottom: 0;
   right: 0;
   width: 100%;
@@ -73,8 +73,8 @@ main{
 }
 form{
   input, textarea{
-    color: $cherry;
-    border-color: $cherry !important;
-    border-width: 3px !important;
+    color: black;
+    border-color: $orange !important;
+    border-width: 1px !important;
   }
 }
