@@ -7,7 +7,7 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
   const vm  = this;
 
   vm.user = CurrentUserService.currentUser;
-
+  console.log(vm.user);
   vm.task = Task.get($stateParams);
 
   vm.canRequest = (array, object) => {
