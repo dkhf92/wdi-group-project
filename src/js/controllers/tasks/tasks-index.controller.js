@@ -32,6 +32,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     createdTasks();
     availableTasks();
     requestedTasks();
+    assignedTasks();
   }
   $rootScope.$on('taskCreated', () => {
     filterTasks();
@@ -80,6 +81,21 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
         }
       });
       vm.requested = requested;
+    });
+  }
+
+  function assignedTasks() {
+    Task
+    .query()
+    .$promise
+    .then(tasks => {
+      const assigned = [];
+      tasks.forEach(task => {
+        if(task.assignedTo.find(x => x === vm.user._id)) {
+          assigned.push(task);
+        }
+      });
+      vm.assigned = assigned;
     });
   }
 
