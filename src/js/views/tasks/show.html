@@ -32,7 +32,7 @@
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
   </select></br>
-  <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow)" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
+  <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
 </div>
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
