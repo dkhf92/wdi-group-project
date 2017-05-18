@@ -33,19 +33,20 @@
   <select ng-model="tasksShow.charity" class="ma4" name="charity">
     <option value="" disabled>Select a charity</option>
     <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
-  </select></br>
-  <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button></br>
+  </select><br>
+  <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma3" ng-click="tasksShow.request()" type="button" name="button">Request this task</button>
 </div>
 
 <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
 
-<button type="button" ng-click="tasksShow.showModal()" name="button">Show modal</button>
 <div id="requestModal" name="requestModal" class="modal">
   <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" ng-click="tasksShow.closeModal()">&times;</span>
+  <div class="modal-content requestModal">
+    <!-- <span class="close" ng-click="tasksShow.closeModal()">&times;</span> -->
 
-    <p class="measure">Thanks for requesting this task. We'll be in touch if the task creator accepts your request!</p>
+    <p class="" id="modalText">{{ tasksShow.modalText }}</p>
+    <button type="button" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ui-sref="tasksIndex" name="button">Find more tasks</button>
+    <button type="button" class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ng-click="tasksShow.closeModal()" name="button">Close</button>
 
   </div>
 </div>

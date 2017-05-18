@@ -46,12 +46,16 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
       .update({ id: $stateParams.id }, vm.task)
       .$promise
       .then(() => {
+        vm.modalText = 'Thanks for requesting this task, we\'ll be in touch if the creator accepts your request!';
+        vm.showModal();
         vm.task = Task.get($stateParams);
       });
   };
 
   vm.assign = (user, charity, $index) => {
     if (vm.task.assignedTo.find(x => x._id === user._id)) {
+      vm.modalText = 'Sorry that user is already assign to this task.';
+      vm.showModal();
       return console.log('Sorry that user is already assigned to this task.');
     }
     vm.task.assignedTo.push(user._id);
@@ -61,7 +65,8 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
       .update({ id: $stateParams.id }, vm.task)
       .$promise
       .then(() => {
-        vm.requestModal.style.display = 'block';
+        vm.modalText = 'User successfully assigned.';
+        vm.showModal();
         vm.task = Task.get($stateParams);
       });
   };
@@ -78,8 +83,9 @@ function TasksShowCtrl($stateParams, Task, CurrentUserService, Charity){
   vm.closeModal = () => {
     vm.requestModal.style.display = 'none';
   };
+
   vm.requestModal = document.getElementById('requestModal');
-  console.log('Modal', vm.requestModal);
+
   vm.reject = (user, charity, $index) => {
     vm.task.requestedBy.splice($index, 1);
     Task
