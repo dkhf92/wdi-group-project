@@ -51,10 +51,10 @@ a, button{
   text-decoration: none;
   font-size: 0.6em;
   color: $cherry;
-  border-color: $cherry !important;
+  // border-color: $cherry !important;
   font-weight: normal;
   background: transparent;
-  border: 1px solid $cherry;
+  // border: 1px solid $cherry;
 }
 
 .pl {
@@ -66,4 +66,10 @@ a, button{
   &:hover{
     background: rgba(255,255,255,0.2);
   }
+}
+.assigned {
+  color: green;
+}
+.requested {
+  color: red;
 }

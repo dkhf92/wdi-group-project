@@ -51,6 +51,22 @@
                 </div>
               </div>
             </div>
+            <h3 class="ttc white">These are the tasks you have been assigned to:</h3>
+            <div class="fl w-100 dib">
+              <div class="task fl w-100 w-25-ns pa1" ng-repeat="task in tasksIndex.assigned">
+                <div class="fl w-1 ph2 pv4 bg-white task-inner">
+                  <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
+                  <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+
+                  <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+                  <p>Reward: £{{ task.price}}</p>
+                  <div class="caption">
+                    <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </md-content>
         </md-tab>
@@ -70,7 +86,8 @@
                   <div class="caption pt3">
                     <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
                   </div>
-                  <p ng-show="task.requestedBy[0]">TASK REQUESTED</p>
+                  <p ng-show="task.requestedBy[0]" class="requested">TASK REQUESTED</p>
+                  <p ng-show="task.assignedTo[0]" class="assigned">TASK ASSIGNED</p>
 
                 </div>
               </div>

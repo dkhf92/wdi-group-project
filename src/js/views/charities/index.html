@@ -11,13 +11,15 @@
   </form>
   <div class="w-100" style="margin: 0 auto;">
     <div ng-repeat="charity in charities.charities" class="fl w-100 w-50-m w-third-ns pa1">
+      <a ui-sref="charityShow({ id: {{charity.charityId }} })" class="f4 white">
       <div class="pa4 bg-white charity-inner charity shadow-2 tc">
         <div class="caption pa2" style="height: 40%;">
-          <p class="pointer bg-transparent grow pointer f3 dib mb5"><a ui-sref="charityShow({ id: {{charity.charityId }} })" class="f4 white">{{ charity.charityDisplayName }}</p>
+          <p class="pointer bg-transparent grow pointer f3 dib mb5">{{ charity.charityDisplayName }}</p>
         </div>
         <img ng-if="charity.logoUrl" src="{{ charity.logoUrl }}" alt="Charity-Logo"  style="margin:auto;" class="db charityImg">
-        <img ng-if="!charity.logoUrl" src="http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg" style="margin:auto;" class="altImage"></a>
+        <img ng-if="!charity.logoUrl" src="http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg" style="margin:auto;" class="altImage">
       </div>
+      </a>
     </div>
   </div>
 </div>
