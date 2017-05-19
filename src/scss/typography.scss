@@ -13,11 +13,15 @@ html, body {
     // -webkit-animation: spin 5s infinite;
   }
 }
+li{
+  list-style: none;
+}
 .msg{
   color: black;
 }
 .apply-btn {
-  color: $blue;
+  color: white !important;
+  border:1px solid white !important;
 }
 .logo{
   font-family: 'Baloo', cursive;
@@ -42,52 +46,15 @@ html, body {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-// @-ms-keyframes spin {
-//        from {
-//            -ms-transform: rotate(0deg);
-//        }
-//        to {
-//            -ms-transform: rotate(360deg);
-//        }
-// @keyframes fadeIn {
-//   0% {
-//     opacity: 0;
-//   }
-//   80% {
-//     opacity: 0.5;
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
-// @keyframes spin {
-//   0% {
-//     -ms-transform: rotate(360deg);
-//   }
-//   50% {
-//     -ms-transform: rotate(180deg)
-// =======
-//
-//   &:hover{
-//     animation-duration: 800ms;
-//     animation-name: potato;
-//   }
-// }
-// @keyframes potato {
-//   0% {
-//     -ms-transform: rotate(0deg);
-// >>>>>>> development
-//   }
-//   100% {
-//     -ms-transform: rotate(360deg);
-//   }
-// }
 
-a{
+a, button{
   text-decoration: none;
   font-size: 0.6em;
-  color: $blue;
+  color: $cherry;
+  // border-color: $cherry !important;
   font-weight: normal;
+  background: transparent;
+  // border: 1px solid $cherry;
 }
 
 .pl {
@@ -99,4 +66,10 @@ a{
   &:hover{
     background: rgba(255,255,255,0.2);
   }
+}
+.assigned {
+  color: green;
+}
+.requested {
+  color: red;
 }
