@@ -1,15 +1,30 @@
 html, body {
-
   background-color: white;
-
   min-height: 100%;
+}
+
+body{
+  position: relative;
 }
 
 header{
   background: linear-gradient(to bottom, $cherry, #e5447c);
 }
+
+footer{
+  text-align: center;
+  position: fixed;
+  color: white;
+  bottom: 0;
+  padding: 30px;
+  margin-top: 30px;
+  width: 100%;
+  background: linear-gradient(to top, $cherry, #e5447c);
+}
 main{
   text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 .content{
   width: 90%;

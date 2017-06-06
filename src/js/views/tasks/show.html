@@ -5,50 +5,48 @@
 
       <img class="taskImg fl w-30" ng-src="{{ tasksShow.task.image }}" style="margin:auto;">
       <div class="fl w-70 pb4">
-      <p>{{ tasksShow.task.description }}</p>
-      <p>Location: {{ tasksShow.task.location.streetName }}, {{ tasksShow.task.location.postcode }}</p>
-      <p>Date: {{ tasksShow.task.date }}</p>
-      <p>Donation to be made: £{{ tasksShow.task.price}}</p>
+        <p>{{ tasksShow.task.description }}</p>
+        <p>Location: {{ tasksShow.task.location.streetName }}, {{ tasksShow.task.location.postcode }}</p>
+        <p>Date: {{ tasksShow.task.date }}</p>
+        <p>Donation to be made: £{{ tasksShow.task.price}}</p>
 
-      <div ng-if="tasksShow.task.createdBy === tasksShow.user._id" class="relative pb2">
-        <div ng-if="tasksShow.task.requestedBy[0]">
-          <p>Requested by these users:</p>
-          <ul>
-            <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button class="pa1 ma1" ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button><button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.reject(request.user, request.charity, $index)" type="button" name="button" class="pa1 ma1">Reject</button></p></li>
-          </ul>
-        </div>
-        <p ng-if="!tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet had any requests</p>
-        <div class="" ng-if="tasksShow.task.assignedTo[0]">
-          <p>Assigned to:</p>
-          <ul>
-            <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
-          </ul>
-          <p>Charity:</p>
-          <p>{{ tasksShow.task.charity.name }}</p>
-        </div>
-        <p ng-if="tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet been assigned</p>
+        <div ng-if="tasksShow.task.createdBy === tasksShow.user._id" class="relative pb2">
+          <div ng-if="tasksShow.task.requestedBy[0]">
+            <p>Requested by these users:</p>
+            <ul>
+              <li ng-repeat="request in tasksShow.task.requestedBy track by $index"><p>{{ request.user.username }} : {{ request.charity.name }} <button class="pa1 ma1" ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.assign(request.user, request.charity, $index)" type="button" name="button">Assign</button><button ng-show="tasksShow.task.createdBy === tasksShow.user._id" ng-click="tasksShow.reject(request.user, request.charity, $index)" type="button" name="button" class="pa1 ma1">Reject</button></p></li>
+            </ul>
+          </div>
+          <p ng-if="!tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet had any requests</p>
+          <div class="" ng-if="tasksShow.task.assignedTo[0]">
+            <p>Assigned to:</p>
+            <ul>
+              <li ng-repeat="user in tasksShow.task.assignedTo"><p>{{ user.username }}</p></li>
+            </ul>
+            <p>Charity:</p>
+            <p>{{ tasksShow.task.charity.name }}</p>
+          </div>
+          <p ng-if="tasksShow.task.requestedBy[0] && !tasksShow.task.assignedTo[0]">This task has not yet been assigned</p>
 
+        </div>
+
+        <div class="pa3" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
+          <p ng-if="tasksShow.task.requestedBy[0]" class="pb2">This task has {{ tasksShow.task.requestedBy.length }} outstanding request<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
+          <p ng-if="tasksShow.task.assignedTo[0]" class="pb2">This task has {{ tasksShow.task.assignedTo.length
+          }} user<span ng-if="tasksShow.task.assignedTo.length !== 1">s</span> assigned to it</p>
+        </div>
       </div>
-
-      <div class="pa3" ng-if="tasksShow.task.createdBy !== tasksShow.user._id">
-        <p ng-if="tasksShow.task.requestedBy[0]" class="pb2">This task has {{ tasksShow.task.requestedBy.length }} outstanding request<span ng-if="tasksShow.task.requestedBy.length !== 1">s</span></p>
-        <p ng-if="tasksShow.task.assignedTo[0]" class="pb2">This task has {{ tasksShow.task.assignedTo.length
-        }} user<span ng-if="tasksShow.task.assignedTo.length !== 1">s</span> assigned to it</p>
-        </div>
-  </div>
-        <div class="pa3">
-
-
-          <select ng-model="tasksShow.charity" name="charity">
-            <option value="" disabled>Select a charity</option>
-            <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
-          </select><br>
-          <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib mv3" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
-          <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b pa3 mv3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ng-click="tasksShow.request()" type="button" name="button">Request this task</button>
+      <div class="pa3">
+        <select ng-model="tasksShow.charity" name="charity">
+          <option value="" disabled>Select a charity</option>
+          <option  ng-repeat="charity in tasksShow.charities" value="{{ charity._id }}">{{ charity.name }}</option>
+        </select><br>
+        <button class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib mv3" type="button" name="button"  ng-show="tasksShow.task.createdBy === tasksShow.user._id" ui-sref="tasksEdit({ id: tasksShow.task._id })">Edit Task</button>
+        <button ng-disabled="tasksShow.canRequest(tasksShow.task.requestedBy, tasksShow) || !tasksShow.charity" class="b pa3 mv3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" ng-click="tasksShow.request()" type="button" name="button">Request this task</button>
 
 
         <button class="b pa3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="button" name="button"  ui-sref="tasksIndex">Back</button>
-    </div>
+      </div>
     </div>
     <div id="requestModal" name="requestModal" class="modal">
       <!-- Modal content -->
@@ -63,7 +61,7 @@
     </div>
 
     <div class="charitySearch fl w-100 w-60-ns pa1" ng-controller="CharitySearchCtrl as charities">
-      <h1>Search Charities</h1>
+      <h3>Search Charities</h3>
       <div class="ma4" style="height: 100%">
         <form ng-submit="charities.charitySearch()" class="measure center">
 
