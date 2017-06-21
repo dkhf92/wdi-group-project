@@ -33,15 +33,23 @@ function googleMap($window, $http, $timeout, API){
             map: map
           });
           const url = `${window.location.origin}/tasks`;
-          const contentString = '<div class="content ba">'+
-          '<div class="bg-black-70 white">'+
-          `<h1 id="firstHeading" class="f4">${task.name}</h1>`+
+          const contentString = '<article class="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">'+
+          `<img ng-src="${task.name}" class="db w-100 br2 br--top" alt="">`+
+          '<div class="pa2 ph3-ns pb3-ns">'+
+          '<div class="dt w-100 mt1">'+
+          '<div class="dtc">'+
+          `<h1 id="" class="f5 f4-ns mv0">${task.name}</h1>`+
           '</div>'+
-          '<div id="bodyContent">'+
+          '<div class="dtc tr">'+
+          `<h2 class="f5 mv0">£${task.price}</h2>`+
+          '</div>'+
+          '</div>'+
+          '<div id="" class="f6 lh-copy measure mt2 mid-gray">'+
           `<p>${task.location.streetName}, <span class="ttu">${task.location.postcode}</span></p>`+
           `<a href="${url}/${task._id}" class="f7">More...</a>`+
           '</div>'+
-          '</div>';
+          '</div>'+
+          '</article>';
 
           const infowindow = new google.maps.InfoWindow({
             content: contentString

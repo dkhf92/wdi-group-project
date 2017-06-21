@@ -1,1 +1,118 @@
-<h1>User index</h1>
+<section class="content pv5">
+  <div class="fl w-100 w-30-ns pl2-ns fr cf">
+    <div class="profile tc">
+      <img ng-src="{{main.user.image}}" class="br-100 h4 w4 dib ba b--black-05 pa2" title="">
+      <h3 class="ttc">Hi {{main.user.username}}, wanna do something good today?</h3>
+      <p class="f5 fw4 gray mt0">Browse through the list of tasks other people need to be done, or post one yourself.</p>
+    </div>
+  </div>
+  <div class="fl w-100 w-70-ns pb5 cf">
+    <div ng-cloak class="index-wrap">
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="View tasks">
+          <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+              <md-tab label="Show List">
+              <md-content class="md-padding">
+                <h4 class="tl white f-w-0">Here's a list of tasks available near you:</h4>
+                <div class="task fl w-100 w-50-m w-third-ns pa1" ng-repeat="task in dashboard.available">
+                  <div class="fl w-1 ph2 pv4 bg-white task-inner">
+                    <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+                    <a ui-sref="tasksShow({ id: task._id })"><h1 id="task-name">{{ task.name }}</h1></a>
+                    <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+                    <p>Reward: £{{ task.price}}</p>
+                    <div class="caption pt3">
+                      <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">Apply</a>
+                    </div>
+                  </div>
+                </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="Show on map">
+              <md-content class="md-padding">
+                <div class="pv4">
+                  <google-map class="w-100 dib cf" tasks="dashboard.available"></google-map>
+                </div>
+              </md-content>
+            </md-tab>
+            </md-tabs>
+          </md-content>
+        </md-tab>
+
+        <md-tab label="Tasks requested">
+          <md-content class="md-padding">
+
+
+            <div class="fl w-100 dib" ng-show="dashboard.requested[0]">
+              <h4 class="ttc white">These are the tasks you have requested:</h4>
+              <div class="task fl w-100 w-50-m w-third-ns pa1" ng-repeat="task in dashboard.requested">
+                <div class="fl w-1 ph2 pv4 bg-white task-inner">
+                  <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
+                  <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+
+                  <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+                  <p>Reward: £{{ task.price}}</p>
+                  <div class="caption pt3">
+                    <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4 class="ttc white" ng-show="dashboard.assigned[0]">These are the tasks you have been assigned to:</h4>
+            <div class="fl w-100 dib">
+              <div class="task fl w-100 w-third-ns pa1" ng-repeat="task in dashboard.assigned">
+                <div class="fl w-1 ph2 pv4 bg-white task-inner">
+                  <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
+                  <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+
+                  <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+                  <p>Reward: £{{ task.price}}</p>
+                  <div class="caption">
+                    <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </md-content>
+        </md-tab>
+        <md-tab label="Tasks created">
+          <md-content class="md-padding">
+            <div class="w-100 dib" ng-show="dashboard.created[0]">
+              <h4 class="ttc white">These are the tasks you have created:</h4>
+              <div class="task fl w-100 w-50-m w-third-ns pa1" ng-repeat="task in dashboard.created">
+                <div class="fl w-1 ph2 pv4 bg-white task-inner">
+                  <a ui-sref="tasksShow({ id: task._id })"><h1>{{ task.name }}</h1></a>
+
+
+                  <img class="taskImg" ng-src="{{ task.image }}" style="margin:auto;">
+
+                  <p>Location: <span class="ttu">{{ task.location.postcode }}</span></p>
+                  <p>Reward: £{{ task.price}}</p>
+                  <div class="caption pt3">
+                    <a class="f6 link dim br2 ba ph3 pv2 dib apply-btn" ui-sref="tasksShow({ id: task._id })">More</a>
+                  </div>
+                  <p ng-show="task.requestedBy[0]" class="requested">TASK REQUESTED</p>
+                  <p ng-show="task.assignedTo[0]" class="assigned">TASK ASSIGNED</p>
+
+                </div>
+              </div>
+            </div>
+
+          </md-content>
+        </md-tab>
+        <md-tab label="Post a task">
+          <md-content class="md-padding" ng-controller=
+          "TasksNewCtrl as tasksNew">
+            <tasks-new></tasks-new>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>
+</div>
+
+</section>

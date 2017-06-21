@@ -14,7 +14,7 @@ function TasksIndexCtrl(Task, $state, CurrentUserService, filterFilter, $rootSco
     .remove({ id: activity._id })
     .$promise
     .then(() => {
-      $state.go('tasksIndex');
+      $state.go('dashboard');
     });
   }
 

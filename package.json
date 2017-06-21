@@ -1,13 +1,13 @@
 {
-  "name": "angular-gulp-setup",
+  "name": "feelGood-App",
   "version": "1.0.0",
-  "description": "A example stack with gulp and angular",
+  "description": "WDI Group project",
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover node_modules/.bin/_mocha",
     "postinstall": "bower install && gulp deploy"
   },
-  "author": "Alex Chin <alex@alexchin.co.uk>",
+  "author": "Matteo Morandini, Horace Keating, Didrik Forsberg, Imran Mughal",
   "license": "ISC",
   "gulp": {
     "srcDir": "src/",
