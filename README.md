@@ -35,6 +35,8 @@ We faced many obstacles in the making of this project. We decided that as a grou
 
 <h3>The code</h3>
 
+```
+
     createdTasks();
     availableTasks();
     requestedTasks();
@@ -104,7 +106,8 @@ We faced many obstacles in the making of this project. We decided that as a grou
       vm.assigned = assigned;
     });
   }
-
+  
+```
 <h3>How we overcame the problems</h3>
 
 We found that the easiest way to associate our tasks with different users in different ways was to reference users in multiple fields in the task model. This then led to some difficulties in filtering tasks for our index page: in the 'Available tasks' section we wanted to only display tasks that the user had neither requested nor created, while in the 'Created tasks' we wanted to show all tasks the user had created, but with different information displayed depending on whether the task had been requested by another user.
